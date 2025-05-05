@@ -58,7 +58,7 @@ export default function RootLayout({
                   <div className="h-0.5 w-0 bg-primary transition-all group-hover:w-full"></div>
                 </Link>
                 <Link
-                  href="https://github.com/misstandmelder/misstand-melder"
+                  href="https://github.com/misstandmelder/misstandmelder"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
