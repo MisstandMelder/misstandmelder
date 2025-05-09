@@ -1,27 +1,21 @@
-import { xAI } from 'ai';
+// app/api/grok/route.ts
+import { NextResponse } from 'next/server';
+import axios from 'axios';
 
 export async function POST(request: Request) {
   try {
-    console.log('Received POST request to /api/grok');
-    const { message } = await request.json();
-    console.log('Request body:', { message });
-    const apiKey = process.env.XAI_API_KEY2;
-    console.log('API Key:', apiKey ? 'Loaded' : 'Not loaded');
+    const apiKey = process.env.XAI_API_KEY_2;
     if (!apiKey) {
-      throw new Error('Missing API key');
+      return NextResponse.json({ error: 'XAI_API_KEY_2 is not defined' }, { status: 500 });
     }
-    const response = await xAI({
-      model: 'grok-3-latest',
-      messages: [
-        { role: 'system', content: 'You are a helpful assistant for MisstandMelder, assisting users in reporting issues in the Netherlands.' },
-        { role: 'user', content: message || 'Testing.' },
-      ],
-      apiKey,
+
+    const body = await request.json();
+    const response = await axios.post('https://api.x.ai/grok', body, {
+      headers: { 'Authorization': `Bearer ${apiKey}` }
     });
-    console.log('Grok API response:', response);
-    return new Response(JSON.stringify(response), { status: 200 });
+
+    return NextResponse.json(response.data);
   } catch (error) {
-    console.error('API Error:', error);
-    return new Response(JSON.stringify({ error: 'Failed to fetch response from Grok API' }), { status: 500 });
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
