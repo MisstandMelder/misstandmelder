@@ -5,7 +5,7 @@ export async function POST(request: Request) {
     console.log('Received POST request to /api/grok');
     const { message } = await request.json();
     console.log('Request body:', { message });
-    const apiKey = process.env.misstandmelder;
+    const apiKey = process.env.XAI_API_KEY2;
     console.log('API Key:', apiKey ? 'Loaded' : 'Not loaded');
     if (!apiKey) {
       throw new Error('Missing API key');

@@ -181,7 +181,7 @@ export default function RootLayout({
                   </li>
                   <li>
                     <Link
-                      href="https://github.com/misstandmelder/misstand-melder"
+                      href="https://github.com/misstandmelder/misstandmelder"
                       className="text-sm text-muted-foreground hover:text-foreground"
                       target="_blank"
                       rel="noopener noreferrer"
