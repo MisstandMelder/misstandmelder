@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="nl" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="nl" className="scroll-smooth">
       <body className={inter.className}>
         <ThemeProviderWrapper>
           <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
@@ -34,8 +34,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   MisstandMelder
                 </span>
               </Link>
-
-              {/* Desktop Navigation */}
               <nav className="ml-auto hidden md:flex gap-1">
                 <Link href="/" className="group px-3 py-2 text-sm font-medium transition-colors hover:text-primary">
                   Home
@@ -62,8 +60,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   </Button>
                 </Link>
               </nav>
-
-              {/* Mobile Navigation */}
               <div className="md:hidden ml-auto">
                 <Sheet>
                   <SheetTrigger asChild>
