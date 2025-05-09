@@ -97,7 +97,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                           AI-assistent
                         </Link>
                         <Link
-                          href="https://github.com/misstandmelder/misstand-melder"
+                          href="https://github.com/misstandmelder/misstandmelder"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="px-2 py-1 text-lg font-medium hover:text-primary flex items-center gap-2"
@@ -176,7 +176,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   </li>
                   <li>
                     <Link
-                      href="https://github.com/misstandmelder/misstand-melder"
+                      href="https://github.com/misstandmelder/misstandmelder"
                       className="text-sm text-muted-foreground hover:text-foreground"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -198,4 +198,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-
