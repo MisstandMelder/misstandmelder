@@ -57,27 +57,33 @@ export function ChatInterface() {
       
       Antwoord in het Nederlands tenzij de gebruiker in een andere taal communiceert.`
 
-      const { text } = await generateText({
-        model: xai("grok"),
-        messages: [
-          { role: "system", content: systemPrompt },
-          ...messages.map((msg) => ({
-            role: msg.role,
-            content: msg.content,
-          })),
-          { role: "user", content: userMessage },
-        ],
-      })
+      const apiKey = process.env.XAI_API_KEY_2
+    if (!apiKey) {
+      throw new Error("Missing XAI API key")
+    }
 
-      setMessages((prev) => [...prev, { role: "assistant", content: text }])
-    } catch (error) {
-      console.error("Error generating response:", error)
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          content: "Er is een fout opgetreden bij het genereren van een antwoord. Probeer het later opnieuw.",
-        },
+    const { text } = await generateText({
+      model: xai("grok"),
+      apiKey,
+      messages: [
+        { role: "system", content: systemPrompt },
+        ...messages.map((msg) => ({
+          role: msg.role,
+          content: msg.content,
+        })),
+        { role: "user", content: userMessage },
+      ],
+    })
+
+    setMessages((prev) => [...prev, { role: "assistant", content: text }])
+  } catch (error) {
+    console.error("Error generating response:", error)
+    setMessages((prev) => [
+      ...prev,
+      {
+        role: "assistant",
+        content: "Er is een fout opgetreden bij het genereren van een antwoord. Probeer het later opnieuw.",
+      },
       ])
     } finally {
       setIsLoading(false)
