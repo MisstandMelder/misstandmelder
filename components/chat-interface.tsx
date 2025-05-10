@@ -1,48 +1,50 @@
-"use client"
+'use client';
 
-import type React from "react"
-import { useState, useRef, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Send, User, Bot, Loader2 } from "lucide-react"
+import type React from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Send, User, Bot, Loader2 } from 'lucide-react';
 
 type Message = {
-  role: "user" | "assistant"
-  content: string
-}
+  role: 'user' | 'assistant';
+  content: string;
+};
 
 export function ChatInterface() {
   const [messages, setMessages] = useState<Message[]>([
     {
-      role: "assistant",
-      content: "Welkom bij MisstandMelder. Hoe kan ik u helpen bij het melden van een misstand?",
+      role: 'assistant',
+      content: 'Welkom bij MisstandMelder. Hoe kan ik u helpen bij het melden van een misstand?',
     },
-  ])
-  const [input, setInput] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
+  ]);
+  const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(''); // Nieuwe error-state
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   useEffect(() => {
-    scrollToBottom()
-  }, [messages])
+    scrollToBottom();
+  }, [messages]);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!input.trim()) return
+    e.preventDefault();
+    if (!input.trim()) return;
 
-    const userMessage = input
-    setInput("")
-    setMessages((prev) => [...prev, { role: "user", content: userMessage }])
-    setIsLoading(true)
+    const userMessage = input;
+    setInput('');
+    setMessages((prev) => [...prev, { role: 'user', content: userMessage }]);
+    setIsLoading(true);
+    setError(''); // Reset error
 
     try {
-      const systemPrompt = `Je bent een behulpzame assistent voor het MisstandMelder platform, een gratis, open-source platform om misstanden in Nederland (zoals corruptie, bureaucratie, gebrek aan menselijkheid) te melden via Google Reviews. 
+      const systemPrompt = `Je bent een behulpzame assistent voor het MisstandMelder platform, een gratis, open-source platform om misstanden in Nederland (zoals corruptie, bureaucratie, gebrek aan menselijkheid) te melden via Google Reviews.
       
       Help de gebruiker bij het formuleren van een duidelijke en effectieve melding. Vraag naar details zoals:
       - Waar vond het incident plaats?
@@ -52,7 +54,7 @@ export function ChatInterface() {
       
       Geef advies over hoe ze hun ervaring kunnen delen op Google Maps en help hen bij het opstellen van een objectieve review.
       
-      Antwoord in het Nederlands tenzij de gebruiker in een andere taal communiceert.`
+      Antwoord in het Nederlands tenzij de gebruiker in een andere taal communiceert.`;
 
       const response = await fetch('/api/grok', {
         method: 'POST',
@@ -60,34 +62,32 @@ export function ChatInterface() {
         body: JSON.stringify({
           message: userMessage,
           messages: [
-            { role: "system", content: systemPrompt },
+            { role: 'system', content: systemPrompt },
             ...messages.map((msg) => ({
               role: msg.role,
               content: msg.content,
             })),
           ],
         }),
-      })
+      });
 
       if (!response.ok) {
-        throw new Error(`API error: ${response.statusText}`)
+        const errorData = await response.json();
+        throw new Error(errorData.error || `API error: ${response.statusText}`);
       }
 
-      const data = await response.json()
-      setMessages((prev) => [...prev, { role: "assistant", content: data.text }])
+      const data = await response.json();
+      if (!data.text) {
+        throw new Error('Geen tekst ontvangen van de API');
+      }
+      setMessages((prev) => [...prev, { role: 'assistant', content: data.text }]);
     } catch (error) {
-      console.error("Error generating response:", error)
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          content: "Er is een fout opgetreden bij het genereren van een antwoord. Probeer het later opnieuw.",
-        },
-      ])
+      console.error('Error generating response:', error);
+      setError(`Fout: ${error.message}`); // Toon fout in UI
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   return (
     <Card className="w-full overflow-hidden rounded-2xl shadow-xl border-0 bg-gradient-to-br from-white to-blue-50 dark:from-gray-900 dark:to-gray-900/80">
@@ -106,10 +106,15 @@ export function ChatInterface() {
       <CardContent className="p-0">
         <div className="flex flex-col h-[500px]">
           <div className="flex-1 overflow-y-auto p-6 space-y-6">
+            {error && (
+              <div className="p-3 bg-red-100 text-red-700 rounded-lg mx-6">
+                {error}
+              </div>
+            )}
             {messages.map((message, index) => (
-              <div key={index} className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
+              <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className="flex items-start max-w-[80%] group">
-                  {message.role === "assistant" && (
+                  {message.role === 'assistant' && (
                     <Avatar className="h-8 w-8 mr-3 mt-1">
                       <AvatarImage src="/misstandmelder-logo.png" alt="MisstandMelder" />
                       <AvatarFallback className="bg-primary/10">
@@ -119,14 +124,14 @@ export function ChatInterface() {
                   )}
                   <div
                     className={`px-4 py-3 rounded-2xl ${
-                      message.role === "user"
-                        ? "bg-gradient-to-r from-primary to-blue-600 text-white ml-auto"
-                        : "bg-muted/80 border"
+                      message.role === 'user'
+                        ? 'bg-gradient-to-r from-primary to-blue-600 text-white ml-auto'
+                        : 'bg-muted/80 border'
                     }`}
                   >
                     <p className="text-sm whitespace-pre-wrap">{message.content}</p>
                   </div>
-                  {message.role === "user" && (
+                  {message.role === 'user' && (
                     <Avatar className="h-8 w-8 ml-3 mt-1">
                       <AvatarFallback className="bg-primary/10">
                         <User className="h-4 w-4 text-primary" />
@@ -163,12 +168,14 @@ export function ChatInterface() {
                 placeholder="Typ uw bericht..."
                 className="flex-1 rounded-full border-2 focus-visible:ring-primary"
                 disabled={isLoading}
+                aria-label="Bericht invoeren" // Toegankelijkheid
               />
               <Button
                 type="submit"
                 size="icon"
                 className="rounded-full h-10 w-10 bg-primary hover:bg-primary/90"
                 disabled={isLoading || !input.trim()}
+                aria-label="Bericht verzenden"
               >
                 <Send className="h-4 w-4" />
               </Button>
@@ -177,5 +184,5 @@ export function ChatInterface() {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

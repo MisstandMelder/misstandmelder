@@ -18,11 +18,11 @@ export function ExampleReview() {
                 <h3 className="font-semibold text-lg">Evert Lenos</h3>
                 <div className="flex items-center">
                   <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                  <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                  <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                  <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   <Star className="h-4 w-4 text-muted-foreground" />
-                  <span className="ml-2 text-sm text-muted-foreground">4.0</span>
+                  <Star className="h-4 w-4 text-muted-foreground" />
+                  <Star className="h-4 w-4 text-muted-foreground" />
+                  <Star className="h-4 w-4 text-muted-foreground" />
+                  <span className="ml-2 text-sm text-muted-foreground">3.0</span>
                 </div>
               </div>
             </div>
@@ -30,13 +30,10 @@ export function ExampleReview() {
             <div className="space-y-4">
               <div className="flex items-center">
                 <div className="h-6 w-1 bg-primary rounded-full mr-2"></div>
-                <p className="text-lg font-medium">Zaans Medisch Centrum</p>
+                <p className="text-lg font-medium">Zaans Medisch Centrum: Toegankelijkheid en patiëntgerichtheid</p>
               </div>
-              <blockquote className="text-lg leading-relaxed">
-                "Mijn ervaring met het Zaans Medisch Centrum was teleurstellend. Een wond werd niet persoonlijk
-                onderzocht en contact met specialisten verliep via een callcenter, zelfs bij hoge pijnscores. Dit gebrek
-                aan menselijkheid had een grote emotionele impact. Ik hoop dat deze feedback leidt tot structurele
-                verbetering."
+              <blockquote className="text-lg leading-relaxed"><i>
+                "Mijn ervaring met het Zaans Medisch Centrum tijdens en na de behandeling van mijn vrouw was teleurstellend en pijnlijk. Hoewel er zeker toegewijde zorgverleners zijn – met name de verpleegkundigen – heb ik ook serieuze tekortkomingen ervaren in de manier waarop met patiënten en hun naasten wordt omgegaan. Deze tekortkomingen hadden een grote impact. "</i>
               </blockquote>
             </div>
           </div>
