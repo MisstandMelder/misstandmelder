@@ -8,12 +8,12 @@ export async function POST(req: Request) {
     const { message, messages } = await req.json();
     console.log('Request body:', { message, messages });
 
-    const apiKey = process.env.XAI_API_KEY_2;
-    console.log('API Key Value:', apiKey);
-    console.log('API Key:', apiKey ? 'Loaded' : 'Not loaded');
-    if (!apiKey) {
-      throw new Error('Missing API key');
-    }
+    const apiKey = process.env.AI_URL_XAI_API_KEY_2;
+console.log('API Key Value:', apiKey);
+console.log('API Key:', apiKey ? 'Loaded' : 'Not loaded');
+if (!apiKey) {
+  throw new Error('Missing API key');
+}
 
     const { text } = await generateText({
       model: xai('grok-3-latest'),
