@@ -1,15 +1,12 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Send, User, Bot, Loader2 } from "lucide-react"
-import { generateText } from "ai"
-import { xai } from "@ai-sdk/xai"
 
 type Message = {
   role: "user" | "assistant"
@@ -57,33 +54,35 @@ export function ChatInterface() {
       
       Antwoord in het Nederlands tenzij de gebruiker in een andere taal communiceert.`
 
-      const apiKey = process.env.XAI_API_KEY_2
-    if (!apiKey) {
-      throw new Error("Missing XAI API key")
-    }
+      const response = await fetch('/api/grok', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: userMessage,
+          messages: [
+            { role: "system", content: systemPrompt },
+            ...messages.map((msg) => ({
+              role: msg.role,
+              content: msg.content,
+            })),
+          ],
+        }),
+      })
 
-    const { text } = await generateText({
-      model: xai("grok"),
-      apiKey,
-      messages: [
-        { role: "system", content: systemPrompt },
-        ...messages.map((msg) => ({
-          role: msg.role,
-          content: msg.content,
-        })),
-        { role: "user", content: userMessage },
-      ],
-    })
+      if (!response.ok) {
+        throw new Error(`API error: ${response.statusText}`)
+      }
 
-    setMessages((prev) => [...prev, { role: "assistant", content: text }])
-  } catch (error) {
-    console.error("Error generating response:", error)
-    setMessages((prev) => [
-      ...prev,
-      {
-        role: "assistant",
-        content: "Er is een fout opgetreden bij het genereren van een antwoord. Probeer het later opnieuw.",
-      },
+      const data = await response.json()
+      setMessages((prev) => [...prev, { role: "assistant", content: data.text }])
+    } catch (error) {
+      console.error("Error generating response:", error)
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: "Er is een fout opgetreden bij het genereren van een antwoord. Probeer het later opnieuw.",
+        },
       ])
     } finally {
       setIsLoading(false)
