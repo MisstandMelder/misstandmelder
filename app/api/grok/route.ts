@@ -8,11 +8,11 @@ export async function POST(request: Request) {
     const { message, messages } = await request.json();
     console.log('Request body:', { message, messages });
 
-    const apiKey = process.env.XAI_API_KEY_2;
-    console.log('API Key:', apiKey ? 'Loaded' : 'Not loaded');
-    if (!apiKey) {
-      throw new Error('Missing API key');
-    }
+    const apiKey = process.env.AI_URL_XAI_API_KEY_2;
+console.log('API Key:', apiKey ? 'Loaded' : 'Not loaded');
+if (!apiKey) {
+  throw new Error('Missing API key');
+}
 
     // Initialiseer de xAI-provider
     const xai = createXai({
