@@ -18,49 +18,66 @@ export function ReportingGuide() {
   const [copied, setCopied] = useState(false)
 
   const handleGenerateReport = async () => {
-    if (!location || !date || !description) return
-
-    setIsGenerating(true)
-    try {
-      const prompt = `Genereer een objectieve Google Review voor de volgende situatie:
-      
-      Locatie: ${location}
-      Datum: ${date}
-      Beschrijving: ${description}
-      
-      Maak een duidelijke, feitelijke en respectvolle review die de situatie goed beschrijft en die nuttig is voor anderen.`
-
-      const response = await fetch('/api/grok', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message: prompt,
-          messages: [
-            {
-              role: 'system',
-              content: 'Je bent een assistent die helpt bij het opstellen van effectieve meldingen van misstanden voor het MisstandMelder platform. Genereer een objectieve Google Review op basis van de gegeven informatie. De review moet feitelijk, duidelijk en respectvol zijn.',
-            },
-          ],
-        }),
-      })
-
-      if (!response.ok) {
-        throw new Error(`API error: ${response.status}`)
-      }
-
-      const data = await response.json()
-      if (data.error) {
-        throw new Error(data.details)
-      }
-
-      setGeneratedReport(data.text)
-    } catch (error) {
-      console.error("Error generating report:", error)
-      setGeneratedReport("Er is een fout opgetreden bij het genereren van de melding. Probeer het later opnieuw.")
-    } finally {
-      setIsGenerating(false)
-    }
+  if (!location || !date || !description) {
+    console.log("Missing input: ", { location, date, description })
+    return
   }
+
+  setIsGenerating(true)
+  console.log("Generating report with inputs: ", { location, date, description })
+
+  try {
+    const prompt = `Genereer een objectieve Google Review voor de volgende situatie:
+    
+    Locatie: ${location}
+    Datum: ${date}
+    Beschrijving: ${description}
+    
+    Maak een duidelijke, feitelijke en respectvolle review die de situatie goed beschrijft en die nuttig is voor anderen.`
+    console.log("Sending prompt to /api/grok: ", prompt)
+
+    const response = await fetch('/api/grok', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: prompt,
+        messages: [
+          {
+            role: 'system',
+            content: 'Je bent een assistent die helpt bij het opstellen van effectieve meldingen van misstanden voor het MisstandMelder platform. Genereer een objectieve Google Review op basis van de gegeven informatie. De review moet feitelijk, duidelijk en respectvol zijn.',
+          },
+        ],
+      }),
+    })
+
+    console.log("API response status: ", response.status)
+    if (!response.ok) {
+      const errorText = await response.text()
+      console.error("API error response: ", errorText)
+      throw new Error(`API error: ${response.status} ${errorText}`)
+    }
+
+    const data = await response.json()
+    console.log("API response data: ", data)
+    if (data.error) {
+      console.error("API error details: ", data.details)
+      throw new Error(data.details)
+    }
+
+    if (!data.text) {
+      console.error("No text in API response: ", data)
+      throw new Error("No text received from API")
+    }
+
+    console.log("Setting generated report: ", data.text)
+    setGeneratedReport(data.text)
+  } catch (error) {
+    console.error("Error generating report: ", error.message)
+    setGeneratedReport("Er is een fout opgetreden bij het genereren van de melding. Probeer het later opnieuw.")
+  } finally {
+    setIsGenerating(false)
+  }
+}
 
   const copyToClipboard = () => {
     navigator.clipboard
