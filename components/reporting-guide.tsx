@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -13,14 +13,13 @@ export function ReportingGuide() {
   const [location, setLocation] = useState("")
   const [date, setDate] = useState("")
   const [description, setDescription] = useState("")
-  const [rating, setRating] = useState(1) // Nieuw: sterrenbeoordeling
+  const [rating, setRating] = useState(1) // Sterrenbeoordeling
   const [generatedReport, setGeneratedReport] = useState("")
   const [isGenerating, setIsGenerating] = useState(false)
   const [copied, setCopied] = useState(false)
-  const [chatMessages, setChatMessages] = useState<{ role: string; content: string }[]>([]) // Nieuw: chatgeschiedenis
-  const [chatInput, setChatInput] = useState("") // Nieuw: chat invoer
+  const [chatMessages, setChatMessages] = useState<{ role: string; content: string }[]>([]) // Chatgeschiedenis
+  const [chatInput, setChatInput] = useState("") // Chat invoer
   const [isChatting, setIsChatting] = useState(false)
-  const [googleMapsLink, setGoogleMapsLink] = useState("") // Nieuw: Google Maps link
 
   // AI-assistent chatfunctionaliteit
   const handleChat = async () => {
@@ -54,7 +53,7 @@ export function ReportingGuide() {
         setLocation(assistantResponse.match(/locatie:?\s*([^\n]+)/)?.[1] || "")
       }
       if (assistantResponse.includes("datum") && !date) {
-        setLocation(assistantResponse.match(/datum:?\s*([^\n]+)/)?.[1] || "")
+        setDate(assistantResponse.match(/datum:?\s*([^\n]+)/)?.[1] || "")
       }
       if (assistantResponse.includes("beschrijving") && !description) {
         setDescription(assistantResponse.match(/beschrijving:?\s*([^\n]+)/)?.[1] || "")
@@ -124,16 +123,6 @@ export function ReportingGuide() {
 
       console.log("Setting generated report: ", data.text)
       setGeneratedReport(data.text)
-
-      // Genereer Google Maps link
-      const mapsResponse = await fetch(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${encodeURIComponent(location)}&inputtype=textquery&fields=place_id&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`)
-      const mapsData = await mapsResponse.json()
-      if (mapsData.candidates && mapsData.candidates[0]?.place_id) {
-        setGoogleMapsLink(`https://www.google.com/maps/place/?q=place_id:${mapsData.candidates[0].place_id}`)
-      } else {
-        console.error("No place found for location:", location)
-        setGoogleMapsLink(`https://www.google.com/maps/search/${encodeURIComponent(location)}`)
-      }
     } catch (error) {
       console.error("Error generating report: ", error.message)
       setGeneratedReport("Er is een fout opgetreden bij het genereren van de melding. Probeer het later opnieuw.")
@@ -151,6 +140,11 @@ export function ReportingGuide() {
         setTimeout(() => setCopied(false), 2000)
       })
       .catch((err) => console.error("Kon niet kopiëren:", err))
+  }
+
+  // Genereer Google Maps zoeklink
+  const getGoogleMapsLink = () => {
+    return `https://www.google.com/maps/search/${encodeURIComponent(location)}`
   }
 
   return (
@@ -319,16 +313,14 @@ export function ReportingGuide() {
                       </>
                     )}
                   </Button>
-                  {googleMapsLink && (
-                    <Button
-                      asChild
-                      className="flex gap-2 rounded-full bg-primary text-white hover:bg-primary/90"
-                    >
-                      <a href={googleMapsLink} target="_blank" rel="noopener noreferrer">
-                        Plaats op Google Maps
-                      </a>
-                    </Button>
-                  )}
+                  <Button
+                    asChild
+                    className="flex gap-2 rounded-full bg-primary text-white hover:bg-primary/90"
+                  >
+                    <a href={getGoogleMapsLink()} target="_blank" rel="noopener noreferrer">
+                      Plaats op Google Maps
+                    </a>
+                  </Button>
                 </div>
               </div>
             ) : (
