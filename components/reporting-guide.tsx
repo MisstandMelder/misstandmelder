@@ -48,16 +48,25 @@ export function ReportingGuide() {
       setChatMessages([...newMessages, { role: "assistant", content: data.response }])
 
       // Suggesties voor formulierinvulling
-      const assistantResponse = data.response.toLowerCase()
-      if (assistantResponse.includes("locatie") && !location) {
-        setLocation(assistantResponse.match(/locatie:?\s*([^\n]+)/)?.[1] || "")
-      }
-      if (assistantResponse.includes("datum") && !date) {
-        setDate(assistantResponse.match(/datum:?\s*([^\n]+)/)?.[1] || "")
-      }
-      if (assistantResponse.includes("beschrijving") && !description) {
-        setDescription(assistantResponse.match(/beschrijving:?\s*([^\n]+)/)?.[1] || "")
-      }
+      const assistantResponse = data.response
+      const lines = assistantResponse.split('\n')
+      lines.forEach(line => {
+        if (line.startsWith('Locatie:') && !location) {
+          setLocation(line.replace('Locatie:', '').trim())
+        }
+        if (line.startsWith('Datum:') && !date) {
+          setDate(line.replace('Datum:', '').trim())
+        }
+        if (line.startsWith('Beschrijving:') && !description) {
+          setDescription(line.replace('Beschrijving:', '').trim())
+        }
+        if (line.startsWith('Beoordeling:') && rating === 1) {
+          const starsMatch = line.match(/Beoordeling: (\d)/)
+          if (starsMatch) {
+            setRating(parseInt(starsMatch[1]))
+          }
+        }
+      })
     } catch (error) {
       console.error("Error in chat:", error)
       setChatMessages([...newMessages, { role: "assistant", content: "Sorry, er ging iets mis. Probeer opnieuw." }])
@@ -328,7 +337,7 @@ export function ReportingGuide() {
                 <div className="rounded-full bg-primary/10 p-6 mb-6">
                   <Clipboard className="h-12 w-12 text-primary" />
                 </div>
-                <h3 className="text-xl font-medium mb-2">Nog geen melding gegenereerd</h3>
+                <h3 className="text-xl font-medium mb-2">Nog geen melding gegenereerd</ MONITORh3>
                 <p className="text-muted-foreground max-w-md">
                   Vul het formulier in of gebruik de assistent om een melding te genereren.
                 </p>
