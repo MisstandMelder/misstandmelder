@@ -5,13 +5,12 @@ export async function POST(request: Request) {
     const body = await request.json();
     console.log('Request body:', body);
 
-    const apiKey = process.env.AI_URL_XAI_API_KEY_2;
-    console.log('API Key Value:', apiKey);
-    console.log('API Key:', apiKey ? 'Loaded' : 'Not loaded');
-
-    if (!apiKey) {
-      throw new Error('Missing API key');
-    }
+    const apiKey = process.env.XAI_API_KEY_2;
+console.log('API Key Value:', apiKey);
+console.log('API Key:', apiKey ? 'Loaded' : 'Not loaded');
+if (!apiKey) {
+  throw new Error('Missing API key');
+}
 
     const response = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
