@@ -7,8 +7,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Textarea } from "@/components/ui/textarea"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { generateText } from "ai"
-import { xai } from "@ai-sdk/xai"
 import { Clipboard, Check, Loader2, Building, Calendar, FileText } from "lucide-react"
 
 export function ReportingGuide() {
@@ -24,19 +22,38 @@ export function ReportingGuide() {
 
     setIsGenerating(true)
     try {
-      const { text } = await generateText({
-        model: xai("grok"),
-        prompt: `Genereer een objectieve Google Review voor de volgende situatie:
-        
-        Locatie: ${location}
-        Datum: ${date}
-        Beschrijving: ${description}
-        
-        Maak een duidelijke, feitelijke en respectvolle review die de situatie goed beschrijft en die nuttig is voor anderen.`,
-        system: `Je bent een assistent die helpt bij het opstellen van effectieve meldingen van misstanden voor het MisstandMelder platform. Genereer een objectieve Google Review op basis van de gegeven informatie. De review moet feitelijk, duidelijk en respectvol zijn.`,
+      const prompt = `Genereer een objectieve Google Review voor de volgende situatie:
+      
+      Locatie: ${location}
+      Datum: ${date}
+      Beschrijving: ${description}
+      
+      Maak een duidelijke, feitelijke en respectvolle review die de situatie goed beschrijft en die nuttig is voor anderen.`
+
+      const response = await fetch('/api/grok', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: prompt,
+          messages: [
+            {
+              role: 'system',
+              content: 'Je bent een assistent die helpt bij het opstellen van effectieve meldingen van misstanden voor het MisstandMelder platform. Genereer een objectieve Google Review op basis van de gegeven informatie. De review moet feitelijk, duidelijk en respectvol zijn.',
+            },
+          ],
+        }),
       })
 
-      setGeneratedReport(text)
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`)
+      }
+
+      const data = await response.json()
+      if (data.error) {
+        throw new Error(data.details)
+      }
+
+      setGeneratedReport(data.text)
     } catch (error) {
       console.error("Error generating report:", error)
       setGeneratedReport("Er is een fout opgetreden bij het genereren van de melding. Probeer het later opnieuw.")
