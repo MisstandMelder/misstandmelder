@@ -1,68 +1,51 @@
-import { NextResponse } from 'next/server'
+import { generateText } from "ai"
+import { createXai } from "@ai-sdk/xai"
+import { type NextRequest, NextResponse } from "next/server"
 
-  export async function POST(req: Request) {
-    try {
-      const { messages } = await req.json()
+// Create xai instance with explicit API key
+const xai = createXai({
+  apiKey: process.env.XAI_API_KEY || process.env.XAI_API_KEY_2,
+})
 
-      if (!messages || !Array.isArray(messages) || messages.length === 0) {
-        console.error('Invalid or missing messages:', messages)
-        return NextResponse.json({ error: 'Missing or invalid messages' }, { status: 400 })
-      }
+export async function POST(req: NextRequest) {
+  try {
+    const { messages } = await req.json()
 
-      const systemPrompt = `Je bent een behulpzame assistent voor het MisstandMelder platform. Geef specifieke suggesties voor:
-      - Locatie: Bijv. "Gemeente Amsterdam"
-      - Datum: Bijv. "11 mei 2025"
-      - Beschrijving: Beschrijf de situatie.
-      - Beoordeling: Suggesteer een sterrenbeoordeling (1-5).
-      Geef antwoorden in het formaat:
-      Locatie: [suggestie]
-      Datum: [suggestie]
-      Beschrijving: [suggestie]
-      Beoordeling: [1-5] sterren
-      Antwoord in het Nederlands.`
+    const systemPrompt = `Je bent een behulpzame assistent voor het MisstandMelder platform, een gratis, open-source platform om misstanden in Nederland (zoals corruptie, bureaucratie, gebrek aan menselijkheid) te melden via Google Reviews. 
+    
+    Help de gebruiker bij het formuleren van een duidelijke en effectieve melding. Vraag naar details zoals:
+    - Waar vond het incident plaats?
+    - Wanneer gebeurde het?
+    - Wie was erbij betrokken?
+    - Wat is er precies gebeurd?
+    - Welke sterrenbeoordeling (1-5) past bij de situatie?
+    
+    Informatie over sterrenbeoordelingen:
+    - 1 ster: Zeer ernstige misstanden, grove nalatigheid, corruptie
+    - 2 sterren: Ernstige problemen, slechte dienstverlening, onprofessioneel gedrag
+    - 3 sterren: Gemiddelde ervaring met enkele problemen
+    - 4 sterren: Over het algemeen goed, maar met enkele verbeterpunten
+    - 5 sterren: Uitstekende ervaring, geen misstanden (niet gebruikelijk voor dit platform)
+    
+    Geef advies over hoe ze hun ervaring kunnen delen op Google Maps en help hen bij het opstellen van een objectieve review.
+    
+    Antwoord in het Nederlands tenzij de gebruiker in een andere taal communiceert.`
 
-      const lastMessage = messages[messages.length - 1].content
+    // Format messages for the AI model
+    const formattedMessages = messages.map((msg: any) => ({
+      role: msg.role,
+      content: msg.content,
+    }))
 
-      console.log('Sending request to xAI API with messages:', messages)
-      console.log('System prompt:', systemPrompt)
-      console.log('Last message:', lastMessage)
+    const { text } = await generateText({
+      model: xai("grok-3"),
+      messages: formattedMessages,
+      system: systemPrompt,
+    })
 
-      const response = await fetch('https://api.x.ai/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.XAI_API_KEY_2}`,
-        },
-        body: JSON.stringify({
-          model: 'grok',
-          messages: [
-            { role: 'system', content: systemPrompt },
-            ...messages.slice(0, -1),
-            { role: 'user', content: lastMessage },
-          ],
-          max_tokens: 1000,
-        }),
-      })
-
-      console.log('xAI API response status:', response.status)
-
-      if (!response.ok) {
-        const errorText = await response.text()
-        console.error('xAI API error:', errorText)
-        return NextResponse.json({ error: 'Failed to fetch from xAI API', details: errorText }, { status: response.status })
-      }
-
-      const data = await response.json()
-      console.log('xAI API response data:', data)
-
-      if (!data.choices || !data.choices[0].message.content) {
-        console.error('Invalid API response:', data)
-        return NextResponse.json({ error: 'Invalid response from xAI API' }, { status: 500 })
-      }
-
-      return NextResponse.json({ response: data.choices[0].message.content })
-    } catch (error) {
-      console.error('Error in /api/chat:', error.message)
-      return NextResponse.json({ error: 'Internal server error', details: error.message }, { status: 500 })
-    }
+    return NextResponse.json({ response: text })
+  } catch (error) {
+    console.error("Error in chat API:", error)
+    return NextResponse.json({ error: "Failed to generate response" }, { status: 500 })
   }
+}
