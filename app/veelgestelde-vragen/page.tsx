@@ -1,40 +1,19 @@
+import { SiteHeader } from "@/components/site-header"
+import { SiteFooter } from "@/components/site-footer"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { Search } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { ArrowRight } from "lucide-react" // Import ArrowRight
 
 export default function FAQPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
-      <header className="container flex items-center justify-between py-6">
-        <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="/misstandmelder-logo-new.png"
-            alt="MisstandMelder Logo"
-            width={40}
-            height={40}
-            className="h-10 w-auto"
-          />
-          <span className="font-bold text-xl">MisstandMelder</span>
-        </Link>
-        <div className="flex items-center gap-4">
-          <Link href="/melden" className="text-sm font-medium hover:underline">
-            Melden
-          </Link>
-          <Link href="/over-ons" className="text-sm font-medium hover:underline">
-            Over Ons
-          </Link>
-          <Link href="/veelgestelde-vragen" className="text-sm font-medium hover:underline">
-            FAQ
-          </Link>
-          <Button variant="outline" size="sm">
-            NL
-          </Button>
-          <Button size="sm">Inloggen</Button>
-        </div>
-      </header>
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-background to-muted/20">
+      <SiteHeader />
 
-      <main className="container py-12">
+      <main className="flex-1 container py-12">
         {/* Banner afbeelding */}
         <div className="w-full max-w-5xl mx-auto mb-8 rounded-lg overflow-hidden shadow-lg">
           <Image
@@ -50,9 +29,20 @@ export default function FAQPage() {
         <div className="mx-auto max-w-3xl">
           <h1 className="text-4xl font-bold mb-6 text-center">Veelgestelde vragen</h1>
 
-          <p className="text-xl text-center text-muted-foreground mb-12">
+          <p className="text-xl text-center text-muted-foreground mb-8">
             Antwoorden op de meest gestelde vragen over MisstandMelder
           </p>
+
+          {/* Zoekbalk voor FAQ's */}
+          <div className="relative mb-8">
+            <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+            <Input
+              type="search"
+              placeholder="Zoek in veelgestelde vragen..."
+              className="pl-10 w-full"
+              aria-label="Zoek in veelgestelde vragen"
+            />
+          </div>
 
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1">
@@ -149,51 +139,17 @@ export default function FAQPage() {
 
           <div className="mt-12 text-center">
             <p className="text-muted-foreground mb-4">Heb je een vraag die hier niet wordt beantwoord?</p>
-            <Button asChild className="rounded-full">
-              <Link href="/contact">Neem contact op</Link>
+            <Button asChild className="rounded-full group">
+              <Link href="/contact">
+                Neem contact op
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
             </Button>
           </div>
         </div>
       </main>
 
-      <footer className="border-t bg-muted/40 mt-12">
-        <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
-          <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-            <Image
-              src="/misstandmelder-logo-new.png"
-              alt="MisstandMelder Logo"
-              width={24}
-              height={24}
-              className="h-6 w-auto"
-            />
-            <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-              &copy; {new Date().getFullYear()} MisstandMelder. Open-source platform.
-            </p>
-          </div>
-          <div className="flex gap-4">
-            <a
-              href="https://github.com/misstandmelder/misstand-melder"
-              target="_blank"
-              rel="noreferrer"
-              className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
-            >
-              GitHub
-            </a>
-            <Link
-              href="/privacy"
-              className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
-            >
-              Privacy
-            </Link>
-            <Link
-              href="/contact"
-              className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
-            >
-              Contact
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }
