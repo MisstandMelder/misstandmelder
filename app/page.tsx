@@ -178,44 +178,133 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-card rounded-lg overflow-hidden shadow-sm border">
-                <div className="p-4 border-b">
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center gap-2">
-                      <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                        <span className="font-semibold text-primary">A</span>
-                      </div>
-                      <span className="font-medium">Anonieme melder</span>
+            {/* Melding 1: Jan Jansen */}
+            <div className="bg-card rounded-lg overflow-hidden shadow-sm border">
+              <div className="p-4 border-b">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-2">
+                    <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                      <span className="font-semibold text-primary">J</span>
                     </div>
-                    <div className="flex">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <Star
-                          key={star}
-                          className="h-4 w-4"
-                          fill={star <= 2 ? "#FFD700" : "none"}
-                          stroke={star <= 2 ? "#FFD700" : "currentColor"}
-                        />
-                      ))}
-                    </div>
+                    <span className="font-medium">Jan Jansen</span>
                   </div>
-                </div>
-                <div className="p-4">
-                  <h3 className="font-bold mb-2">Gemeente Amsterdam - Vergunningsafdeling</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Na 6 maanden wachten op een eenvoudige vergunning en talloze onbeantwoorde e-mails, werd mijn
-                    aanvraag zonder uitleg afgewezen. Telefonisch was niemand bereikbaar.
-                  </p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-xs text-muted-foreground">15 mei 2023</span>
-                    <Button variant="ghost" size="sm" className="h-8 gap-1">
-                      <MapPin className="h-3 w-3" />
-                      <span className="text-xs">Google Maps</span>
-                    </Button>
+                  <div className="flex">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star
+                        key={star}
+                        className="h-4 w-4"
+                        fill={star <= 2 ? "#FFD700" : "none"}
+                        stroke={star <= 2 ? "#FFD700" : "currentColor"}
+                      />
+                    ))}
                   </div>
                 </div>
               </div>
-            ))}
+              <div className="p-4">
+                <h3 className="font-bold mb-2">
+                  Zorgverlening ZMC: Zorgen over toegankelijkheid en patiëntgerichtheid
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4 italic">
+                  "Mijn ervaring met het Zaans Medisch Centrum tijdens en na de behandeling van mijn vrouw was
+                  teleurstellend en pijnlijk. Hoewel er zeker toegewijde zorgverleners zijn – met name de
+                  verpleegkundigen – heb ik ook serieuze tekortkomingen ervaren in de manier waarop met patiënten en hun
+                  naasten wordt omgegaan. Deze tekortkomingen hadden een grote impact."
+                </p>
+                <div className="flex justify-between items-center">
+                  <span className="text-xs text-muted-foreground">12 mei 2023</span>
+                  <Button variant="ghost" size="sm" className="h-8 gap-1">
+                    <MapPin className="h-3 w-3" />
+                    <span className="text-xs">Google Maps</span>
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* Melding 2: Anonieme melder */}
+            <div className="bg-card rounded-lg overflow-hidden shadow-sm border">
+              <div className="p-4 border-b">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-2">
+                    <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                      <span className="font-semibold text-primary">A</span>
+                    </div>
+                    <span className="font-medium">Anonieme melder</span>
+                  </div>
+                  <div className="flex">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star
+                        key={star}
+                        className="h-4 w-4"
+                        fill={star <= 1 ? "#FFD700" : "none"}
+                        stroke={star <= 1 ? "#FFD700" : "currentColor"}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="p-4">
+                <h3 className="font-bold mb-2">
+                  Schending van Privacy en Gebrek aan Transparantie door Stichting Inlichtingenbureau
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4 italic">
+                  "Tijdens mijn onderzoek naar de werkwijze van het Inlichtingenbureau ontdekte ik een verontrustend
+                  geval waarbij een "signaal" van dit bureau leidde tot een torenhoge vordering bij een vrouw die haar
+                  moeder regelmatig boodschappen liet doen. Het ontbreken van transparantie in de werkwijze van de
+                  stichting is zorgwekkend. Hoe ver gaat men in het verzamelen van persoonlijke gegevens en wat gebeurt
+                  er daarna met die data?"
+                </p>
+                <div className="flex justify-between items-center">
+                  <span className="text-xs text-muted-foreground">3 juni 2023</span>
+                  <Button variant="ghost" size="sm" className="h-8 gap-1">
+                    <MapPin className="h-3 w-3" />
+                    <span className="text-xs">Google Maps</span>
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* Melding 3: Evert Lenos */}
+            <div className="bg-card rounded-lg overflow-hidden shadow-sm border">
+              <div className="p-4 border-b">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-2">
+                    <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                      <span className="font-semibold text-primary">E</span>
+                    </div>
+                    <span className="font-medium">Evert Lenos</span>
+                  </div>
+                  <div className="flex">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star
+                        key={star}
+                        className="h-4 w-4"
+                        fill={star <= 1 ? "#FFD700" : "none"}
+                        stroke={star <= 1 ? "#FFD700" : "currentColor"}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="p-4">
+                <h3 className="font-bold mb-2">
+                  Hoe de FIOD van de Belastingdienst en het OM Amsterdam hun grenzen overschreden
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4 italic">
+                  "Een ander diep zorgwekkend aspect was de vervalsing van een proces-verbaal door rechercheur Daan
+                  Mijnsbergen van de FIOD. Deze ambtenaar, die wist dat mijn vrouw ernstig ziek was, manipuleerde het
+                  verslag van een telefoongesprek om de zaak tegen mij te versterken. Dit is geen kwestie van een
+                  menselijke fout; het toont aan hoe manipulatie binnen dit systeem wordt getolereerd – zo niet
+                  aangemoedigd."
+                </p>
+                <div className="flex justify-between items-center">
+                  <span className="text-xs text-muted-foreground">27 mei 2023</span>
+                  <Button variant="ghost" size="sm" className="h-8 gap-1">
+                    <MapPin className="h-3 w-3" />
+                    <span className="text-xs">Google Maps</span>
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="mt-8 text-center">
