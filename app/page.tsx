@@ -1,5 +1,15 @@
 import { Button } from "@/components/ui/button"
-import { ChevronDown, ExternalLink, Star, MapPin, Shield } from "lucide-react"
+import {
+  ChevronDown,
+  ExternalLink,
+  Star,
+  MapPin,
+  Shield,
+  CheckCircle,
+  FileText,
+  Heart,
+  MessageSquare,
+} from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -107,7 +117,103 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Nieuwe sectie over effectieve reviews */}
         <section className="py-16 bg-muted/30 rounded-xl p-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold">Wat maakt een review effectief?</h2>
+            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+              Een krachtige review die impact maakt volgt deze vier principes
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-card rounded-lg p-6 shadow-sm">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center shrink-0 mt-1">
+                  <FileText className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Feitelijk</h3>
+                  <p className="text-muted-foreground">
+                    Beschrijf specifieke situaties en ervaringen zonder overdrijving. Gebruik objectieve taal en vermijd
+                    emotionele uitspraken die de geloofwaardigheid kunnen ondermijnen.
+                  </p>
+                  <div className="mt-3 p-3 bg-muted rounded-md">
+                    <p className="text-sm italic">
+                      "De arts heeft mijn dossier niet gelezen voordat hij mij zag, wat bleek uit zijn vragen die al in
+                      mijn dossier beantwoord waren."
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-card rounded-lg p-6 shadow-sm">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center shrink-0 mt-1">
+                  <CheckCircle className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Specifiek</h3>
+                  <p className="text-muted-foreground">
+                    Noem concrete voorbeelden die je ervaring illustreren. Details zoals data, tijden, namen (indien
+                    gepast) en exacte gebeurtenissen maken je review overtuigender.
+                  </p>
+                  <div className="mt-3 p-3 bg-muted rounded-md">
+                    <p className="text-sm italic">
+                      "Mijn wond werd niet onderzocht tijdens het consult en ik kon alleen contact krijgen via het
+                      callcenter, waar ik 45 minuten moest wachten."
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-card rounded-lg p-6 shadow-sm">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center shrink-0 mt-1">
+                  <Heart className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Impact</h3>
+                  <p className="text-muted-foreground">
+                    Leg uit wat de emotionele en praktische gevolgen waren. Beschrijf hoe de situatie jou of anderen
+                    heeft beïnvloed om de ernst van de misstand te benadrukken.
+                  </p>
+                  <div className="mt-3 p-3 bg-muted rounded-md">
+                    <p className="text-sm italic">
+                      "Door het gebrek aan communicatie voelde ik me genegeerd en angstig, wat leidde tot extra stress
+                      tijdens een toch al moeilijke periode."
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-card rounded-lg p-6 shadow-sm">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center shrink-0 mt-1">
+                  <MessageSquare className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Constructief</h3>
+                  <p className="text-muted-foreground">
+                    Eindig met hoop op verbetering of suggesties. Een constructieve toon maakt je review serieuzer en
+                    toont dat je doel verbetering is, niet alleen kritiek.
+                  </p>
+                  <div className="mt-3 p-3 bg-muted rounded-md">
+                    <p className="text-sm italic">
+                      "Ik hoop dat deze feedback kan bijdragen aan betere communicatieprocessen, zodat toekomstige
+                      patiënten een betere ervaring hebben."
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold">Waarom MisstandMelder?</h2>
             <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
@@ -165,6 +271,38 @@ export default function Home() {
                   te kaarten.
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Statistieken sectie */}
+        <section className="py-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold">MisstandMelder in cijfers</h2>
+            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+              Onze impact en bereik blijft groeien dankzij mensen zoals jij
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="bg-card rounded-lg p-6 text-center shadow-sm border border-border/50">
+              <div className="text-4xl font-bold text-primary mb-2">500+</div>
+              <p className="text-muted-foreground font-medium">Meldingen gemaakt</p>
+            </div>
+
+            <div className="bg-card rounded-lg p-6 text-center shadow-sm border border-border/50">
+              <div className="text-4xl font-bold text-primary mb-2">98%</div>
+              <p className="text-muted-foreground font-medium">Tevredenheid</p>
+            </div>
+
+            <div className="bg-card rounded-lg p-6 text-center shadow-sm border border-border/50">
+              <div className="text-4xl font-bold text-primary mb-2">24/7</div>
+              <p className="text-muted-foreground font-medium">AI-ondersteuning</p>
+            </div>
+
+            <div className="bg-card rounded-lg p-6 text-center shadow-sm border border-border/50">
+              <div className="text-4xl font-bold text-primary mb-2">100%</div>
+              <p className="text-muted-foreground font-medium">Open-source</p>
             </div>
           </div>
         </section>
