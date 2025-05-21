@@ -9,11 +9,11 @@ export default function MeldenPage() {
       <header className="container flex items-center justify-between py-6">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/misstandmelder-logo.png"
+            src="/misstandmelder-logo-new.png"
             alt="MisstandMelder Logo"
             width={40}
             height={40}
-            className="h-10 w-10"
+            className="h-10 w-auto"
           />
           <span className="font-bold text-xl">MisstandMelder</span>
         </Link>
@@ -35,6 +35,18 @@ export default function MeldenPage() {
       </header>
 
       <main className="container py-12">
+        {/* Banner afbeelding */}
+        <div className="w-full max-w-5xl mx-auto mb-8 rounded-lg overflow-hidden shadow-lg">
+          <Image
+            src="/images/misstandmelder-banner.png"
+            alt="Geef misstanden een stem"
+            width={1500}
+            height={500}
+            className="w-full h-auto"
+            priority
+          />
+        </div>
+
         <div className="mx-auto max-w-4xl text-center mb-12">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Misstand Melden</h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -50,11 +62,11 @@ export default function MeldenPage() {
         <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
           <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
             <Image
-              src="/misstandmelder-logo.png"
+              src="/misstandmelder-logo-new.png"
               alt="MisstandMelder Logo"
               width={24}
               height={24}
-              className="h-6 w-6"
+              className="h-6 w-auto"
             />
             <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
               &copy; {new Date().getFullYear()} MisstandMelder. Open-source platform.

@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { MeldingFormulier } from "@/components/melding-formulier"
 import { ChatInterface } from "@/components/chat-interface"
 import { GoogleMapsPreview } from "@/components/google-maps-preview"
-import { Star, Copy } from "lucide-react"
+import { Star, Copy, AlertTriangle } from "lucide-react"
 
 type MeldingData = {
   location: string
@@ -66,11 +66,41 @@ export function MeldingInterface() {
                     <li>Leg uit welke impact het had</li>
                     <li>Vermijd persoonlijke aanvallen</li>
                     <li>Suggereer constructieve verbeteringen</li>
-                    <li>
-                      <span className="font-medium">Sterrenbeoordeling:</span> Kies een passend aantal sterren (1-5)
-                      voor de ernst van de misstand
-                    </li>
                   </ul>
+
+                  <div className="mt-6 p-3 bg-muted rounded-md">
+                    <h4 className="font-medium flex items-center gap-2 mb-2">
+                      <AlertTriangle className="h-4 w-4 text-primary" />
+                      Soorten misstanden
+                    </h4>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      Selecteer alle types die van toepassing zijn op uw situatie:
+                    </p>
+                    <ul className="text-sm text-muted-foreground grid grid-cols-2 gap-x-4 gap-y-1">
+                      <li>Fraude</li>
+                      <li>Corruptie</li>
+                      <li>Discriminatie</li>
+                      <li>Intimidatie</li>
+                      <li>Diefstal</li>
+                      <li>Misbruik</li>
+                      <li>Nepotisme</li>
+                      <li>Bedrog</li>
+                      <li>Wanbeheer</li>
+                      <li>Bureaucratie</li>
+                      <li>Slechtzorg</li>
+                      <li>Nalatigheid</li>
+                    </ul>
+                  </div>
+
+                  <div className="mt-6">
+                    <h4 className="font-medium flex items-center gap-2 mb-2">
+                      <Star className="h-4 w-4 text-primary" />
+                      Sterrenbeoordeling
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      Kies een passend aantal sterren (1-5) voor de ernst van de misstand
+                    </p>
+                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -96,6 +126,7 @@ export function MeldingInterface() {
                     <li>Hoe u een Google Review plaatst</li>
                     <li>Wat de impact van uw melding kan zijn</li>
                     <li>Welke sterrenbeoordeling past bij uw situatie</li>
+                    <li>Welk type misstand het beste past bij uw situatie</li>
                   </ul>
                 </CardContent>
               </Card>

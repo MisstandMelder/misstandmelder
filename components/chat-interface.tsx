@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar } from "@/components/ui/avatar"
 import { Send, User } from "lucide-react"
+import Image from "next/image"
 
 type Message = {
   role: "user" | "assistant"
@@ -83,7 +84,7 @@ export function ChatInterface() {
                 <div className="flex items-start max-w-[80%]">
                   {message.role === "assistant" && (
                     <Avatar className="h-8 w-8 mr-2">
-                      <img src="/misstandmelder-logo.png" alt="MisstandMelder" />
+                      <Image src="/misstandmelder-logo-new.png" alt="MisstandMelder" width={32} height={32} />
                     </Avatar>
                   )}
                   <Card className={`${message.role === "user" ? "bg-primary text-primary-foreground" : "bg-muted"}`}>

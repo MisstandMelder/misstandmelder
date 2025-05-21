@@ -38,26 +38,18 @@ const formSchema = z.object({
 })
 
 const typeOptions = [
-  {
-    id: "corruptie",
-    label: "Corruptie",
-  },
-  {
-    id: "bureaucratie",
-    label: "Bureaucratie",
-  },
-  {
-    id: "belangenverstrengeling",
-    label: "Belangenverstrengeling",
-  },
-  {
-    id: "vriendjespolitiek",
-    label: "Vriendjespolitiek",
-  },
-  {
-    id: "gebrek-aan-menselijkheid",
-    label: "Gebrek aan menselijkheid",
-  },
+  { id: "fraude", label: "Fraude" },
+  { id: "corruptie", label: "Corruptie" },
+  { id: "discriminatie", label: "Discriminatie" },
+  { id: "intimidatie", label: "Intimidatie" },
+  { id: "diefstal", label: "Diefstal" },
+  { id: "misbruik", label: "Misbruik" },
+  { id: "nepotisme", label: "Nepotisme" },
+  { id: "bedrog", label: "Bedrog" },
+  { id: "wanbeheer", label: "Wanbeheer" },
+  { id: "bureaucratie", label: "Bureaucratie" },
+  { id: "slechtzorg", label: "Slechtzorg" },
+  { id: "nalatigheid", label: "Nalatigheid" },
 ]
 
 type MeldingFormulierProps = {
@@ -222,7 +214,7 @@ export function MeldingFormulier({ onMeldingGenerated }: MeldingFormulierProps) 
                     <FormLabel>Type misstand</FormLabel>
                     <FormDescription>Selecteer alle types die van toepassing zijn.</FormDescription>
                   </div>
-                  <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     {typeOptions.map((option) => (
                       <FormField
                         key={option.id}

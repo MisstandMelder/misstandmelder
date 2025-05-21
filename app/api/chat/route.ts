@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
   try {
     const { messages } = await req.json()
 
-    const systemPrompt = `Je bent een behulpzame assistent voor het MisstandMelder platform, een gratis, open-source platform om misstanden in Nederland (zoals corruptie, bureaucratie, gebrek aan menselijkheid) te melden via Google Reviews. 
+    const systemPrompt = `Je bent een behulpzame assistent voor het MisstandMelder platform, een gratis, open-source platform om misstanden in Nederland (zoals fraude, corruptie, discriminatie, etc.) te melden via Google Reviews. 
     
     Help de gebruiker bij het formuleren van een duidelijke en effectieve melding. Vraag naar details zoals:
     - Waar vond het incident plaats?
@@ -19,6 +19,21 @@ export async function POST(req: NextRequest) {
     - Wie was erbij betrokken?
     - Wat is er precies gebeurd?
     - Welke sterrenbeoordeling (1-5) past bij de situatie?
+    - Welk type misstand is van toepassing?
+    
+    Types misstanden die kunnen worden gemeld:
+    - Fraude: Opzettelijk bedrog voor financieel of ander voordeel
+    - Corruptie: Misbruik van toevertrouwde macht voor persoonlijk gewin
+    - Discriminatie: Ongelijke behandeling op basis van kenmerken zoals afkomst, geslacht, etc.
+    - Intimidatie: Gedrag dat angst of ongemak veroorzaakt
+    - Diefstal: Onrechtmatig toe-eigenen van andermans bezit
+    - Misbruik: Verkeerd gebruik van macht, positie of middelen
+    - Nepotisme: Bevoordelen van familie of vrienden
+    - Bedrog: Misleiding of valse voorstelling van zaken
+    - Wanbeheer: Slecht of inefficiënt beheer van middelen of organisatie
+    - Bureaucratie: Overdreven regels en procedures die effectiviteit belemmeren
+    - Slechtzorg: Ondermaatse zorg in zorginstellingen
+    - Nalatigheid: Verzuim om te handelen waar dat wel verwacht wordt
     
     Informatie over sterrenbeoordelingen:
     - 1 ster: Zeer ernstige misstanden, grove nalatigheid, corruptie

@@ -9,6 +9,13 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "MisstandMelder - Meld misstanden in Nederland",
   description: "Een gratis platform om misstanden in Nederland aan te kaarten via krachtige Google Reviews",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/misstandmelder-logo-new.png", type: "image/png" },
+    ],
+    apple: { url: "/misstandmelder-logo-new.png", type: "image/png" },
+  },
     generator: 'v0.dev'
 }
 

@@ -15,11 +15,18 @@ export async function POST(req: NextRequest) {
     const typesText = types
       .map((type: string) => {
         const typeMap: Record<string, string> = {
+          fraude: "fraude",
           corruptie: "corruptie",
+          discriminatie: "discriminatie",
+          intimidatie: "intimidatie",
+          diefstal: "diefstal",
+          misbruik: "misbruik",
+          nepotisme: "nepotisme",
+          bedrog: "bedrog",
+          wanbeheer: "wanbeheer",
           bureaucratie: "bureaucratie",
-          belangenverstrengeling: "belangenverstrengeling",
-          vriendjespolitiek: "vriendjespolitiek",
-          "gebrek-aan-menselijkheid": "gebrek aan menselijkheid",
+          slechtzorg: "slechtzorg",
+          nalatigheid: "nalatigheid",
         }
         return typeMap[type] || type
       })
