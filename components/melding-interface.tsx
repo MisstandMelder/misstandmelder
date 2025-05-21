@@ -36,7 +36,7 @@ export function MeldingInterface() {
   }
 
   return (
-    <div className="w-full max-w-6xl">
+    <div className="w-full max-w-6xl mx-auto">
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="grid w-full grid-cols-3 mb-8">
           <TabsTrigger value="formulier" className="text-base py-3">
@@ -56,10 +56,10 @@ export function MeldingInterface() {
               <MeldingFormulier onMeldingGenerated={handleMeldingGenerated} />
             </div>
             <div className="lg:col-span-1">
-              <Card>
+              <Card className="bg-card shadow-sm">
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold mb-4">Tips voor een effectieve melding</h3>
-                  <ul className="space-y-3 list-disc pl-5">
+                  <h3 className="text-xl font-bold mb-4">Tips voor een effectieve melding</h3>
+                  <ul className="space-y-3 list-disc pl-5 text-muted-foreground">
                     <li>Wees specifiek over wat er is gebeurd</li>
                     <li>Vermeld datum, tijd en exacte locatie</li>
                     <li>Beschrijf objectief zonder emotionele taal</li>
@@ -83,13 +83,13 @@ export function MeldingInterface() {
               <ChatInterface />
             </div>
             <div className="lg:col-span-1">
-              <Card>
+              <Card className="bg-card shadow-sm">
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold mb-4">Chat Assistent Hulp</h3>
-                  <p className="mb-4">
+                  <h3 className="text-xl font-bold mb-4">Chat Assistent Hulp</h3>
+                  <p className="mb-4 text-muted-foreground">
                     Onze AI-assistent helpt u bij het formuleren van een effectieve melding. U kunt vragen stellen over:
                   </p>
-                  <ul className="space-y-3 list-disc pl-5">
+                  <ul className="space-y-3 list-disc pl-5 text-muted-foreground">
                     <li>Hoe u een specifieke situatie het beste kunt beschrijven</li>
                     <li>Welke details belangrijk zijn om te vermelden</li>
                     <li>Hoe u objectief kunt blijven in uw melding</li>
@@ -107,9 +107,9 @@ export function MeldingInterface() {
           {meldingData && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <div>
-                <Card className="mb-6">
+                <Card className="mb-6 bg-card shadow-sm">
                   <CardContent className="p-6">
-                    <h3 className="text-lg font-semibold mb-4">Gegenereerde Review</h3>
+                    <h3 className="text-xl font-bold mb-4">Gegenereerde Review</h3>
                     <div className="flex items-center mb-4">
                       <div className="flex">
                         {[1, 2, 3, 4, 5].map((star) => (

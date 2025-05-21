@@ -33,9 +33,9 @@ export function GoogleMapsPreview({ location }: GoogleMapsPreviewProps) {
   }, [location])
 
   return (
-    <Card>
+    <Card className="bg-card shadow-sm">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
+        <CardTitle className="text-xl font-bold flex items-center gap-2">
           <MapPin className="h-5 w-5 text-primary" />
           Locatie op Google Maps
         </CardTitle>

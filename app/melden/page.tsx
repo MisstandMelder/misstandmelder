@@ -1,21 +1,89 @@
 import { MeldingInterface } from "@/components/melding-interface"
+import Link from "next/link"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
 
 export default function MeldenPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-4 md:p-12">
-      <div className="z-10 w-full max-w-6xl items-center justify-between font-mono text-sm">
-        <div className="flex flex-col items-center justify-center w-full">
-          <div className="flex items-center mb-8">
-            <img src="/misstandmelder-logo.png" alt="MisstandMelder Logo" className="h-16 w-16 mr-3" />
-            <h1 className="text-3xl font-bold">Misstand Melden</h1>
-          </div>
-          <p className="text-center mb-8 max-w-2xl">
+    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+      <header className="container flex items-center justify-between py-6">
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="/misstandmelder-logo.png"
+            alt="MisstandMelder Logo"
+            width={40}
+            height={40}
+            className="h-10 w-10"
+          />
+          <span className="font-bold text-xl">MisstandMelder</span>
+        </Link>
+        <div className="flex items-center gap-4">
+          <Link href="/melden" className="text-sm font-medium hover:underline">
+            Melden
+          </Link>
+          <Link href="/over-ons" className="text-sm font-medium hover:underline">
+            Over Ons
+          </Link>
+          <Link href="/veelgestelde-vragen" className="text-sm font-medium hover:underline">
+            FAQ
+          </Link>
+          <Button variant="outline" size="sm">
+            NL
+          </Button>
+          <Button size="sm">Inloggen</Button>
+        </div>
+      </header>
+
+      <main className="container py-12">
+        <div className="mx-auto max-w-4xl text-center mb-12">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Misstand Melden</h1>
+          <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
             Gebruik dit platform om een misstand te melden. Vul het formulier in, genereer een objectieve review, en
             plaats deze direct op Google Maps.
           </p>
-          <MeldingInterface />
         </div>
-      </div>
-    </main>
+
+        <MeldingInterface />
+      </main>
+
+      <footer className="border-t bg-muted/40 mt-12">
+        <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
+          <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+            <Image
+              src="/misstandmelder-logo.png"
+              alt="MisstandMelder Logo"
+              width={24}
+              height={24}
+              className="h-6 w-6"
+            />
+            <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
+              &copy; {new Date().getFullYear()} MisstandMelder. Open-source platform.
+            </p>
+          </div>
+          <div className="flex gap-4">
+            <a
+              href="https://github.com/misstandmelder/misstand-melder"
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
+            >
+              GitHub
+            </a>
+            <Link
+              href="/privacy"
+              className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
+            >
+              Privacy
+            </Link>
+            <Link
+              href="/contact"
+              className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
+            >
+              Contact
+            </Link>
+          </div>
+        </div>
+      </footer>
+    </div>
   )
 }

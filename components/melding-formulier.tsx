@@ -127,9 +127,9 @@ export function MeldingFormulier({ onMeldingGenerated }: MeldingFormulierProps) 
   }
 
   return (
-    <Card>
+    <Card className="bg-card shadow-sm">
       <CardHeader>
-        <CardTitle>Maak een nieuwe melding</CardTitle>
+        <CardTitle className="text-xl font-bold">Maak een nieuwe melding</CardTitle>
       </CardHeader>
       <CardContent>
         <Form {...form}>
@@ -306,7 +306,7 @@ export function MeldingFormulier({ onMeldingGenerated }: MeldingFormulierProps) 
               <FormDescription>Selecteer een beoordeling van 1 tot 5 sterren voor deze misstand</FormDescription>
             </div>
 
-            <Button type="submit" disabled={isSubmitting}>
+            <Button type="submit" className="rounded-full" disabled={isSubmitting}>
               {isSubmitting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
