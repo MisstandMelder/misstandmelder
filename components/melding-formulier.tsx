@@ -184,7 +184,7 @@ export function MeldingFormulier({ onMeldingGenerated }: MeldingFormulierProps) 
                         <MapPin className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
                       </div>
                     </FormControl>
-                    <FormDescription>Geef de naam van de organisatie, instelling of plaats waar de misstand zich heeft voorgedaan.</FormDescription>
+                    <FormDescription>Naam van organisatie, instelling of locatie van de misstand</FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
