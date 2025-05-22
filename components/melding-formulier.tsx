@@ -177,7 +177,7 @@ export function MeldingFormulier({ onMeldingGenerated }: MeldingFormulierProps) 
                     <FormControl>
                       <div className="relative">
                         <Input
-                          placeholder="Bijv. BTC Direct, Zaans Medisch Centrum, Gemeente Amsterdam"
+                          placeholder="Bijv. Bedrijf X, Zaans Medisch Centrum, Gemeente Amsterdam"
                           {...field}
                           className="pl-10"
                         />
