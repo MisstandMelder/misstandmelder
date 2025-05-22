@@ -173,18 +173,18 @@ export function MeldingFormulier({ onMeldingGenerated }: MeldingFormulierProps) 
                 name="location"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Locatie</FormLabel>
+                    <FormLabel>Organisatie of locatie</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <Input
-                          placeholder="Bijv. Gemeente Amsterdam, Zaans Medisch Centrum"
+                          placeholder="Bijv. BTC Direct, Gemeente Amsterdam, Zaans Medisch Centrum"
                           {...field}
                           className="pl-10"
                         />
                         <MapPin className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
                       </div>
                     </FormControl>
-                    <FormDescription>Voer een exacte locatie in voor Google Maps</FormDescription>
+                    <FormDescription>Geef de naam van de organisatie, instelling of plaats waar de misstand zich heeft voorgedaan.</FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
