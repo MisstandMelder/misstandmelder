@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     ],
     apple: { url: "/misstandmelder-logo-new.png", type: "image/png" },
   },
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -53,6 +53,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="nl" suppressHydrationWarning>
+      <head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1H5JG69T0"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-S1H5JG69T0');
+            `,
+          }}
+        />
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
