@@ -54,7 +54,10 @@ export default function RootLayout({
   return (
     <html lang="nl" suppressHydrationWarning>
       <head>
-        {/* Google tag (gtag.js) */}
+        {/* ✅ Google site verification (voor AdSense of Search Console) */}
+        <meta name="google-site-verification" content="JdFG__OOtas_IAOGBJvSXvLnlsgJiff5svN1jDuZL_8" />
+
+        {/* ✅ Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1H5JG69T0"></script>
         <script
           dangerouslySetInnerHTML={{
