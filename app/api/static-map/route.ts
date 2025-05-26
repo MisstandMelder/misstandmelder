@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
 
     return new NextResponse(imageBuffer, {
       headers: {
-        "Content-Type": "/fallback-map.png",
+        "Content-Type": "image/png",
         "Cache-Control": "public, max-age=3600",
       },
     })
@@ -49,7 +49,7 @@ export async function GET(request: NextRequest) {
 
       return new NextResponse(fallbackBuffer, {
         headers: {
-          "Content-Type": "/fallback-map.png",
+          "Content-Type": "image/png",
           "Cache-Control": "public, max-age=3600",
         },
       })
