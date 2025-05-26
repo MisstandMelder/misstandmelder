@@ -104,7 +104,7 @@ export default function OverOnsPage() {
             <div className="flex justify-center mt-12">
               <Button asChild className="rounded-full group">
                 <a
-                  href="https://github.com/misstandmelder/misstand-melder"
+                  href="https://github.com/misstandmelder/misstandmelder"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-2"
