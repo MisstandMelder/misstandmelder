@@ -316,15 +316,15 @@ export default function Home() {
                     <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
                       <span className="font-semibold text-primary">J</span>
                     </div>
-                    <span className="font-medium">Jan Jansen</span>
+                    <span className="font-medium">Evert Lenos</span>
                   </div>
-                  <div className="flex">
+                   <div className="flex">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <Star
                         key={star}
                         className="h-4 w-4"
-                        fill={star <= 2 ? "#FFD700" : "none"}
-                        stroke={star <= 2 ? "#FFD700" : "currentColor"}
+                        fill={star <= 1 ? "#FFD700" : "none"}
+                        stroke={star <= 1 ? "#FFD700" : "currentColor"}
                       />
                     ))}
                   </div>
@@ -361,7 +361,7 @@ export default function Home() {
                     <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
                       <span className="font-semibold text-primary">A</span>
                     </div>
-                    <span className="font-medium">Anonieme melder</span>
+                    <span className="font-medium">Evert Lenos</span>
                   </div>
                   <div className="flex">
                     {[1, 2, 3, 4, 5].map((star) => (
