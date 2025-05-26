@@ -308,13 +308,13 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Melding 1: Jan Jansen */}
+            {/* Melding 1: Evert Lenos */}
             <div className="bg-card rounded-lg overflow-hidden shadow-sm border hover:shadow-md transition-all duration-300">
               <div className="p-4 border-b">
                 <div className="flex justify-between items-center">
                   <div className="flex items-center gap-2">
                     <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="font-semibold text-primary">J</span>
+                      <span className="font-semibold text-primary">E</span>
                     </div>
                     <span className="font-medium">Evert Lenos</span>
                   </div>
@@ -353,13 +353,13 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Melding 2: Anonieme melder */}
+            {/* Melding 2: Evert Lenos */}
             <div className="bg-card rounded-lg overflow-hidden shadow-sm border hover:shadow-md transition-all duration-300">
               <div className="p-4 border-b">
                 <div className="flex justify-between items-center">
                   <div className="flex items-center gap-2">
                     <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="font-semibold text-primary">A</span>
+                      <span className="font-semibold text-primary">E</span>
                     </div>
                     <span className="font-medium">Evert Lenos</span>
                   </div>
