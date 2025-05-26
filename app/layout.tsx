@@ -54,10 +54,17 @@ export default function RootLayout({
   return (
     <html lang="nl" suppressHydrationWarning>
       <head>
-        {/* ✅ Google site verification (voor AdSense of Search Console) */}
+        {/* ✅ Google site verification */}
         <meta name="google-site-verification" content="JdFG__OOtas_IAOGBJvSXvLnlsgJiff5svN1jDuZL_8" />
 
-        {/* ✅ Google tag (gtag.js) */}
+        {/* ✅ Google AdSense script */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1879162086277087"
+          crossOrigin="anonymous"
+        ></script>
+
+        {/* ✅ Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1H5JG69T0"></script>
         <script
           dangerouslySetInnerHTML={{
