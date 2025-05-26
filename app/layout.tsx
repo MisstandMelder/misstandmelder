@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/misstandmelder-logo-new.webp", type: "image/webp" },
+      { url: "/misstandmelder-logo-new.png", type: "image/png" },
     ],
-    apple: { url: "/misstandmelder-logo-new.webp", type: "image/webp" },
+    apple: { url: "/misstandmelder-logo-new.png", type: "image/png" },
   },
   generator: 'v0.dev'
 }
