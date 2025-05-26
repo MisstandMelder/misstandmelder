@@ -1,64 +1,61 @@
-import { type NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server"
 
 export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
-  const location = searchParams.get("location");
-  const zoom = searchParams.get("zoom") || "14";
-  const size = searchParams.get("size") || "600x300";
+  const searchParams = request.nextUrl.searchParams
+  const location = searchParams.get("location")
+  const zoom = searchParams.get("zoom") || "14"
+  const size = searchParams.get("size") || "600x300"
 
-  if (!location || typeof location !== "string" || location.trim() === "") {
-    return NextResponse.json({ error: "Geldige locatieparameter vereist" }, { status: 400 });
+  if (!location) {
+    return NextResponse.json({ error: "Location parameter is required" }, { status: 400 })
   }
 
   const staticMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${encodeURIComponent(
-    location
+    location,
   )}&zoom=${zoom}&size=${size}&maptype=roadmap&markers=color:red%7C${encodeURIComponent(
-    location
-  )}&key=${process.env.GOOGLE_MAPS_API_KEY}`;
+    location,
+  )}&key=${process.env.GOOGLE_MAPS_API_KEY}`
 
-  console.log("Statische kaart opvragen van:", staticMapUrl);
+  console.log("Requesting static map from:", staticMapUrl)
 
   try {
-    const response = await fetch(staticMapUrl);
+    const response = await fetch(staticMapUrl)
 
     if (!response.ok) {
-      throw new Error(`Ophalen statische kaart mislukt: ${response.statusText}`);
+      throw new Error(`Failed to fetch static map: ${response.statusText}`)
     }
 
-    const imageBuffer = await response.arrayBuffer();
+    const imageBuffer = await response.arrayBuffer()
 
     return new NextResponse(imageBuffer, {
       headers: {
-        "Content-Type": "image/png", // Correcte MIME-type
+        "Content-Type": "public/fallback-map.png",
         "Cache-Control": "public, max-age=3600",
       },
-    });
+    })
   } catch (error) {
-    console.error("Fout bij ophalen statische kaart:", error.message, error.stack);
-    console.warn("Terugsturen van fallback-afbeelding in plaats van kaart.");
+    console.error("Error fetching static map:", error)
+    console.warn("Stuur fallback-afbeelding terug in plaats van kaart.")
 
     try {
-      const fallbackUrl = `${
-        process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
-      }/fallback-map.png`;
-      const fallbackResponse = await fetch(fallbackUrl);
+      const fallbackUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/fallback-map.png`
+      const fallbackResponse = await fetch(fallbackUrl)
 
       if (!fallbackResponse.ok) {
-        throw new Error(`Fallback-afbeelding niet gevonden: ${fallbackResponse.statusText}`);
+        throw new Error(`Fallback image not found: ${fallbackResponse.statusText}`)
       }
 
-      const fallbackBuffer = await fallbackResponse.arrayBuffer();
+      const fallbackBuffer = await fallbackResponse.arrayBuffer()
 
       return new NextResponse(fallbackBuffer, {
         headers: {
-          "Content-Type": "image/png", // Correcte MIME-type
+          "Content-Type": "image/png",
           "Cache-Control": "public, max-age=3600",
         },
-      });
+      })
     } catch (fallbackError) {
-      console.error("Kon fallback-afbeelding niet laden:", fallbackError.message, fallbackError.stack);
-      return NextResponse.json({ error: "Kan geen kaart of fallback tonen" }, { status: 500 });
+      console.error("Fallback image kon niet geladen worden:", fallbackError)
+      return NextResponse.json({ error: "Kan geen kaart of fallback tonen" }, { status: 500 })
     }
   }
 }
-
