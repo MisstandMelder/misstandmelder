@@ -29,8 +29,8 @@ export async function GET(request: NextRequest) {
 
     return new NextResponse(imageBuffer, {
       headers: {
-        "Content-Type": "public/fallback-map.png",
-        "Cache-Control": "public, max-age=3600",
+        "Content-Type": "/images/fallback-map.png",
+        "Cache-Control": "images, max-age=3600",
       },
     })
   } catch (error) {
