@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "nl_NL",
-    url: "https://misstandmelder.nl",
+    url: "https://misstandmelder.vercel.app",
     title: "MisstandMelder - Meld misstanden in Nederland",
     description: "Een gratis platform om misstanden in Nederland aan te kaarten via krachtige Google Reviews",
     siteName: "MisstandMelder",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MisstandMelder - Meld misstanden in Nederland",
     description: "Een gratis platform om misstanden in Nederland aan te kaarten via krachtige Google Reviews",
-    images: ["/images/misstandmelder-banner.png"],
+    images: ["/images/misstandmelder-banner.webp"],
   },
   icons: {
     icon: [
