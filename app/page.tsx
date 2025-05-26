@@ -26,7 +26,7 @@ export default function Home() {
         <section className="relative py-12 md:py-20">
           <div className="w-full max-w-5xl mx-auto mb-8 mt-4 rounded-lg overflow-hidden shadow-lg">
             <Image
-              src="/images/misstandmelder-banner.png"
+              src="/images/misstandmelder-banner.webp"
               alt="Geef misstanden een stem"
               width={1500}
               height={500}
