@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "MisstandMelder",
     images: [
       {
-        url: "/images/misstandmelder-banner.png",
+        url: "/images/misstandmelder-banner.webp",
         width: 1200,
         height: 630,
         alt: "MisstandMelder - Geef misstanden een stem",
