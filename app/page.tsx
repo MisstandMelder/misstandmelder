@@ -357,8 +357,7 @@ export default function Home() {
               </div>
             </div>
 
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-  {/* Melding 1: Evert Lenos */}
+  {/* Melding 2: Evert Lenos */}
   <div className="bg-card rounded-lg overflow-hidden shadow-sm border hover:shadow-md transition-all duration-300">
     <div className="p-4 border-b">
       <div className="flex justify-between items-center">
@@ -408,8 +407,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-  {/* Melding 1: Evert Lenos */}
+  {/* Melding 3: Evert Lenos */}
   <div className="bg-card rounded-lg overflow-hidden shadow-sm border hover:shadow-md transition-all duration-300">
     <div className="p-4 border-b">
       <div className="flex justify-between items-center">
