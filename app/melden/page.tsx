@@ -1,9 +1,14 @@
+'use client'
+
+import { useState } from "react"
 import { MeldingInterface } from "@/components/melding-interface"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import Image from "next/image"
 
 export default function MeldenPage() {
+  const [meldingVerzonden, setMeldingVerzonden] = useState(false)
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-background to-muted/20">
       <SiteHeader />
@@ -29,8 +34,31 @@ export default function MeldenPage() {
           </p>
         </div>
 
+        {!meldingVerzonden ? (
+          <MeldingInterface onMeldingVerzonden={() => setMeldingVerzonden(true)} />
+        ) : (
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl font-semibold mb-4">L
+ melden. Vul het formulier in, genereer een objectieve review, en
+            plaats deze direct op Google Maps.
+          </p>
+        </div>
+
+        {/* Tijdelijk hardcoded kaart */}
+        <div className="max-w-2xl mx-auto mb-12">
+          <h2 className="text-2xl font-semibold mb-2">Bekijk de locatie:</h2>
+          <ReviewMap institution="Zaans Medisch Centrum" />
+        </div>
+
+        {/* Meldingsformulier */}
         <MeldingInterface />
       </main>
+
+      <SiteFooter />
+    </div>
+  );
+}
+
 
       <SiteFooter />
     </div>
