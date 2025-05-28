@@ -26,7 +26,7 @@ export default function Home() {
         <section className="relative py-12 md:py-20">
           <div className="w-full max-w-5xl mx-auto mb-8 mt-4 rounded-lg overflow-hidden shadow-lg">
             <Image
-              src="/images/misstandmelder-banner.png"
+              src="/images/misstandmelder-banner.webp"
               alt="Geef misstanden een stem"
               width={1500}
               height={500}
@@ -307,27 +307,31 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Melding 1: Jan Jansen */}
-            <div className="bg-card rounded-lg overflow-hidden shadow-sm border hover:shadow-md transition-all duration-300">
-              <div className="p-4 border-b">
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center gap-2">
-                    <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="font-semibold text-primary">J</span>
-                    </div>
-                    <span className="font-medium">Jan Jansen</span>
-                  </div>
-                  <div className="flex">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star
-                        key={star}
-                        className="h-4 w-4"
-                        fill={star <= 2 ? "#FFD700" : "none"}
-                        stroke={star <= 2 ? "#FFD700" : "currentColor"}
-                      />
-                    ))}
-                  </div>
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+  {/* Melding 1: Evert Lenos */}
+  <div className="bg-card rounded-lg overflow-hidden shadow-sm border hover:shadow-md transition-all duration-300">
+    <div className="p-4 border-b">
+      <div className="flex justify-between items-center">
+        <div className="flex items-center gap-2">
+          <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+            <img
+              src="/images/profile.jpg" // Pas dit pad aan naar de locatie van je foto
+              alt="Profielfoto Evert Lenos"
+              className="h-8 w-8 rounded-full object-cover"
+            />
+          </div>
+          <span className="font-medium">Evert Lenos</span>
+        </div>
+        <div className="flex">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <Star
+              key={star}
+              className="h-4 w-4"
+              fill={star <= 1 ? "#FFD700" : "none"}
+              stroke={star <= 1 ? "#FFD700" : "currentColor"}
+            />
+          ))}
+        </div>
                 </div>
               </div>
               <div className="p-4">
@@ -353,26 +357,30 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Melding 2: Anonieme melder */}
-            <div className="bg-card rounded-lg overflow-hidden shadow-sm border hover:shadow-md transition-all duration-300">
-              <div className="p-4 border-b">
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center gap-2">
-                    <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="font-semibold text-primary">A</span>
-                    </div>
-                    <span className="font-medium">Anonieme melder</span>
-                  </div>
-                  <div className="flex">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star
-                        key={star}
-                        className="h-4 w-4"
-                        fill={star <= 1 ? "#FFD700" : "none"}
-                        stroke={star <= 1 ? "#FFD700" : "currentColor"}
-                      />
-                    ))}
-                  </div>
+  {/* Melding 2: Evert Lenos */}
+  <div className="bg-card rounded-lg overflow-hidden shadow-sm border hover:shadow-md transition-all duration-300">
+    <div className="p-4 border-b">
+      <div className="flex justify-between items-center">
+        <div className="flex items-center gap-2">
+          <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+            <img
+              src="/images/profile.jpg" // Pas dit pad aan naar de locatie van je foto
+              alt="Profielfoto Evert Lenos"
+              className="h-8 w-8 rounded-full object-cover"
+            />
+          </div>
+          <span className="font-medium">Evert Lenos</span>
+        </div>
+        <div className="flex">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <Star
+              key={star}
+              className="h-4 w-4"
+              fill={star <= 1 ? "#FFD700" : "none"}
+              stroke={star <= 1 ? "#FFD700" : "currentColor"}
+            />
+          ))}
+        </div>
                 </div>
               </div>
               <div className="p-4">
@@ -399,26 +407,30 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Melding 3: Evert Lenos */}
-            <div className="bg-card rounded-lg overflow-hidden shadow-sm border hover:shadow-md transition-all duration-300">
-              <div className="p-4 border-b">
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center gap-2">
-                    <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="font-semibold text-primary">E</span>
-                    </div>
-                    <span className="font-medium">Evert Lenos</span>
-                  </div>
-                  <div className="flex">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star
-                        key={star}
-                        className="h-4 w-4"
-                        fill={star <= 1 ? "#FFD700" : "none"}
-                        stroke={star <= 1 ? "#FFD700" : "currentColor"}
-                      />
-                    ))}
-                  </div>
+  {/* Melding 3: Evert Lenos */}
+  <div className="bg-card rounded-lg overflow-hidden shadow-sm border hover:shadow-md transition-all duration-300">
+    <div className="p-4 border-b">
+      <div className="flex justify-between items-center">
+        <div className="flex items-center gap-2">
+          <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+            <img
+              src="/images/profile.jpg" // Pas dit pad aan naar de locatie van je foto
+              alt="Profielfoto Evert Lenos"
+              className="h-8 w-8 rounded-full object-cover"
+            />
+          </div>
+          <span className="font-medium">Evert Lenos</span>
+        </div>
+        <div className="flex">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <Star
+              key={star}
+              className="h-4 w-4"
+              fill={star <= 1 ? "#FFD700" : "none"}
+              stroke={star <= 1 ? "#FFD700" : "currentColor"}
+            />
+          ))}
+        </div>
                 </div>
               </div>
               <div className="p-4">
