@@ -1,11 +1,10 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import GoogleAnalytics from "@/components/google-analytics"
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import GoogleAnalytics from "@/components/google-analytics";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "MisstandMelder - Meld misstanden in Nederland",
@@ -15,6 +14,7 @@ export const metadata: Metadata = {
   authors: [{ name: "MisstandMelder Team" }],
   creator: "MisstandMelder",
   publisher: "MisstandMelder",
+  metadataBase: new URL("https://misstandmelder.vercel.app"), // Toegevoegd
   openGraph: {
     type: "website",
     locale: "nl_NL",
@@ -44,29 +44,19 @@ export const metadata: Metadata = {
     ],
     apple: { url: "/misstandmelder-logo-new.webp", type: "image/webp" },
   },
-  generator: 'v0.dev'
-}
+  generator: "v0.dev",
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="nl" suppressHydrationWarning>
       <head>
-        {/* ✅ Google site verification */}
         <meta name="google-site-verification" content="JdFG__OOtas_IAOGBJvSXvLnlsgJiff5svN1jDuZL_8" />
-
-        {/* ✅ Google AdSense script */}
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1879162086277087"
           crossOrigin="anonymous"
         ></script>
-<<<<<<< HEAD
-
-        {/* ✅ Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1H5JG69T0"></script>
         <script
           dangerouslySetInnerHTML={{
@@ -78,8 +68,6 @@ export default function RootLayout({
             `,
           }}
         />
-=======
->>>>>>> 525554c7a2ff4387dfc458b71afd0c87173845b3
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
@@ -88,5 +76,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
