@@ -1,10 +1,14 @@
-import { MeldingInterface } from "@/components/melding-interface";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
-import ReviewMap from "@/components/ReviewMap";
-import Image from "next/image";
+'use client'
+
+import { useState } from "react"
+import { MeldingInterface } from "@/components/melding-interface"
+import { SiteHeader } from "@/components/site-header"
+import { SiteFooter } from "@/components/site-footer"
+import Image from "next/image"
 
 export default function MeldenPage() {
+  const [meldingVerzonden, setMeldingVerzonden] = useState(false)
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-background to-muted/20">
       <SiteHeader />
@@ -26,6 +30,16 @@ export default function MeldenPage() {
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Misstand Melden</h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
             Gebruik dit platform om een misstand te melden. Vul het formulier in, genereer een objectieve review, en
+            plaats deze direct op Google Maps.
+          </p>
+        </div>
+
+        {!meldingVerzonden ? (
+          <MeldingInterface onMeldingVerzonden={() => setMeldingVerzonden(true)} />
+        ) : (
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl font-semibold mb-4">L
+ melden. Vul het formulier in, genereer een objectieve review, en
             plaats deze direct op Google Maps.
           </p>
         </div>
