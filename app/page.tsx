@@ -358,25 +358,31 @@ export default function Home() {
             </div>
 
             {/* Melding 2: Evert Lenos */}
-            <div className="bg-card rounded-lg overflow-hidden shadow-sm border hover:shadow-md transition-all duration-300">
-              <div className="p-4 border-b">
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center gap-2">
-                    <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="font-semibold text-primary">E</span>
-                    </div>
-                    <span className="font-medium">Evert Lenos</span>
-                  </div>
-                  <div className="flex">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star
-                        key={star}
-                        className="h-4 w-4"
-                        fill={star <= 1 ? "#FFD700" : "none"}
-                        stroke={star <= 1 ? "#FFD700" : "currentColor"}
-                      />
-                    ))}
-                  </div>
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+  {/* Melding 1: Evert Lenos */}
+  <div className="bg-card rounded-lg overflow-hidden shadow-sm border hover:shadow-md transition-all duration-300">
+    <div className="p-4 border-b">
+      <div className="flex justify-between items-center">
+        <div className="flex items-center gap-2">
+          <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+            <img
+              src="/images/profile.jpg" // Pas dit pad aan naar de locatie van je foto
+              alt="Profielfoto Evert Lenos"
+              className="h-8 w-8 rounded-full object-cover"
+            />
+          </div>
+          <span className="font-medium">Evert Lenos</span>
+        </div>
+        <div className="flex">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <Star
+              key={star}
+              className="h-4 w-4"
+              fill={star <= 1 ? "#FFD700" : "none"}
+              stroke={star <= 1 ? "#FFD700" : "currentColor"}
+            />
+          ))}
+        </div>
                 </div>
               </div>
               <div className="p-4">
@@ -404,25 +410,31 @@ export default function Home() {
             </div>
 
             {/* Melding 3: Evert Lenos */}
-            <div className="bg-card rounded-lg overflow-hidden shadow-sm border hover:shadow-md transition-all duration-300">
-              <div className="p-4 border-b">
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center gap-2">
-                    <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="font-semibold text-primary">E</span>
-                    </div>
-                    <span className="font-medium">Evert Lenos</span>
-                  </div>
-                  <div className="flex">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star
-                        key={star}
-                        className="h-4 w-4"
-                        fill={star <= 1 ? "#FFD700" : "none"}
-                        stroke={star <= 1 ? "#FFD700" : "currentColor"}
-                      />
-                    ))}
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+  {/* Melding 1: Evert Lenos */}
+  <div className="bg-card rounded-lg overflow-hidden shadow-sm border hover:shadow-md transition-all duration-300">
+    <div className="p-4 border-b">
+      <div className="flex justify-between items-center">
+        <div className="flex items-center gap-2">
+          <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+            <img
+              src="/images/profile.jpg" // Pas dit pad aan naar de locatie van je foto
+              alt="Profielfoto Evert Lenos"
+              className="h-8 w-8 rounded-full object-cover"
+            />
+          </div>
+          <span className="font-medium">Evert Lenos</span>
+        </div>
+        <div className="flex">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <Star
+              key={star}
+              className="h-4 w-4"
+              fill={star <= 1 ? "#FFD700" : "none"}
+              stroke={star <= 1 ? "#FFD700" : "currentColor"}
+            />
+          ))}
+        </div>
                 </div>
               </div>
               <div className="p-4">
