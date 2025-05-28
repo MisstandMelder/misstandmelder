@@ -1,7 +1,8 @@
-import { MeldingInterface } from "@/components/melding-interface"
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
-import Image from "next/image"
+import { MeldingInterface } from "@/components/melding-interface";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import ReviewMap from "@/components/ReviewMap";
+import Image from "next/image";
 
 export default function MeldenPage() {
   return (
@@ -29,8 +30,21 @@ export default function MeldenPage() {
           </p>
         </div>
 
+        {/* Tijdelijk hardcoded kaart */}
+        <div className="max-w-2xl mx-auto mb-12">
+          <h2 className="text-2xl font-semibold mb-2">Bekijk de locatie:</h2>
+          <ReviewMap institution="Zaans Medisch Centrum" />
+        </div>
+
+        {/* Meldingsformulier */}
         <MeldingInterface />
       </main>
+
+      <SiteFooter />
+    </div>
+  );
+}
+
 
       <SiteFooter />
     </div>
