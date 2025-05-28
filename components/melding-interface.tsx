@@ -135,44 +135,56 @@ export function MeldingInterface() {
         </TabsContent>
 
         <TabsContent value="resultaat" className="mt-0">
-          {meldingData && (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div>
-                <Card className="mb-6 bg-card shadow-sm">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-4">Gegenereerde Review</h3>
-                    <div className="flex items-center mb-4">
-                      <div className="flex">
-                        {[1, 2, 3, 4, 5].map((star) => (
-                          <Star
-                            key={star}
-                            className="h-5 w-5"
-                            fill={star <= meldingData.rating ? "#FFD700" : "none"}
-                            stroke={star <= meldingData.rating ? "#FFD700" : "currentColor"}
-                          />
-                        ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div>
+              <Card className="mb-6 bg-card shadow-sm">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-4">
+                    {meldingData ? "Gegenereerde Review" : "Voorbeeld Review – Zaans Medisch Centrum"}
+                  </h3>
+
+                  {meldingData ? (
+                    <>
+                      <div className="flex items-center mb-4">
+                        <div className="flex">
+                          {[1, 2, 3, 4, 5].map((star) => (
+                            <Star
+                              key={star}
+                              className="h-5 w-5"
+                              fill={star <= meldingData.rating ? "#FFD700" : "none"}
+                              stroke={star <= meldingData.rating ? "#FFD700" : "currentColor"}
+                            />
+                          ))}
+                        </div>
+                        <span className="ml-2 text-sm text-muted-foreground">{meldingData.date}</span>
                       </div>
-                      <span className="ml-2 text-sm text-muted-foreground">{meldingData.date}</span>
-                    </div>
-                    <div className="p-4 border rounded-md bg-muted mb-4">
-                      <p className="whitespace-pre-wrap">{meldingData.review}</p>
-                    </div>
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      <Button variant="outline" onClick={handleCopyToClipboard} className="flex gap-2">
-                        <Copy className="h-4 w-4" />
-                        {copySuccess ? "Gekopieerd!" : "Kopieer naar klembord"}
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-              <div>
-                <GoogleMapsPreview location={meldingData.location} />
-              </div>
+                      <div className="p-4 border rounded-md bg-muted mb-4">
+                        <p className="whitespace-pre-wrap">{meldingData.review}</p>
+                      </div>
+                      <div className="flex flex-col sm:flex-row gap-3">
+                        <Button variant="outline" onClick={handleCopyToClipboard} className="flex gap-2">
+                          <Copy className="h-4 w-4" />
+                          {copySuccess ? "Gekopieerd!" : "Kopieer naar klembord"}
+                        </Button>
+                      </div>
+                    </>
+                  ) : (
+                    <p className="text-muted-foreground">
+                      Zodra je een melding invult, verschijnt hier automatisch een gegenereerde review. Hieronder zie je een
+                      voorbeeld.
+                    </p>
+                  )}
+                </CardContent>
+              </Card>
             </div>
-          )}
+
+            <div>
+              <GoogleMapsPreview location={meldingData ? meldingData.location : "Zaans Medisch Centrum"} />
+            </div>
+          </div>
         </TabsContent>
       </Tabs>
     </div>
   )
 }
+
