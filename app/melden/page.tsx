@@ -45,7 +45,7 @@ export default function MeldenPage() {
               alt="Kaart voorbeeld"
               width={600}
               height={300}
-              style={{ width: "25%", height: "auto", borderRadius: "8px" }}
+              style={{ width: "100%", height: "auto", borderRadius: "8px" }}
             />
 
             <a
