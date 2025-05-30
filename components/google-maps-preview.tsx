@@ -88,7 +88,7 @@ export function GoogleMapsPreview({ location }: GoogleMapsPreviewProps) {
               </Button>
             )}
             <p className="text-sm text-muted-foreground">
-              Klik op de knop hierboven om naar Google Maps te gaan en uw review te plaatsen.
+              Kopieer de onderstaande "Gegenereerde Review" naar je klembord. Klik vervolgens op de knop hierboven om naar Google Maps te gaan en plaats daar je review.
             </p>
           </div>
         </div>
