@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   authors: [{ name: "MisstandMelder Team" }],
   creator: "MisstandMelder",
   publisher: "MisstandMelder",
-  metadataBase: new URL("https://misstandmelder.vercel.app"), // Toegevoegd
+  metadataBase: new URL("https://misstandmelder.vercel.app"),
   openGraph: {
     type: "website",
     locale: "nl_NL",
@@ -57,17 +57,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1879162086277087"
           crossOrigin="anonymous"
         ></script>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1H5JG69T0"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-S1H5JG69T0');
-            `,
-          }}
-        />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>

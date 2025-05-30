@@ -33,10 +33,35 @@ export default function MeldenPage() {
           </p>
         </div>
 
-        <MeldingInterface />
-      </main>
+        {!meldingVerzonden ? (
+          <MeldingInterface onVerzonden={() => setMeldingVerzonden(true)} />
+        ) : (
+          <div className="text-center space-y-6">
+            <h2 className="text-2xl font-semibold">Bedankt voor je melding!</h2>
+            <p>Je review is gegenereerd. Hieronder zie je een voorbeeld van de locatie.</p>
 
+            <Image
+              src="/api/static-map"
+              alt="Kaart voorbeeld"
+              width={600}
+              height={300}
+              style={{ width: "25%", height: "auto", borderRadius: "8px" }}
+            />
+
+            <a
+              href="https://www.google.com/maps"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+            >
+              Plaats op Google Maps
+            </a>
+          </div>
+        )}
+      </main>
       <SiteFooter />
     </div>
   );
 }
+
+
