@@ -341,10 +341,10 @@ export default function Home() {
                 <div className="relative">
                   <div className="absolute -left-2 -top-2 text-primary text-opacity-20 text-4xl">"</div>
                   <p className="text-sm text-muted-foreground mb-4 italic pl-4">
-                    Mijn ervaring met het Zaans Medisch Centrum tijdens en na de behandeling van mijn vrouw was
-                    teleurstellend en pijnlijk. Hoewel er zeker toegewijde zorgverleners zijn – met name de
-                    verpleegkundigen – heb ik ook serieuze tekortkomingen ervaren in de manier waarop met patiënten en
-                    hun naasten wordt omgegaan. Deze tekortkomingen hadden een grote impact.
+                    Mijn ervaring met het Zaans Medisch Centrum tijdens en na de behandeling van mijn vrouw was teleurstellend en pijnlijk. Hoewel er zeker toegewijde zorgverleners zijn – met name de verpleegkundigen – heb ik ook serieuze tekortkomingen ervaren in de manier waarop met patiënten en hun naasten wordt omgegaan. Deze tekortkomingen hadden een grote impact. Hieronder licht ik de belangrijkste knelpunten toe.</p>
+
+<p className="text-sm text-muted-foreground mb-4 italic pl-4">Gebrek aan persoonlijke betrokkenheid
+Tijdens de behandeling werd een wond, veroorzaakt door de kanker, niet persoonlijk door de behandelaar onderzocht. Na het overlijden van mijn vrouw kreeg ik te horen dat deze zorg bij een andere afdeling lag. In het licht van haar ernstige ziekte en de emotionele belasting voelde dit als een gemiste kans op meer mensgerichte zorg.
                   </p>
                 </div>
                 <div className="flex justify-between items-center">
