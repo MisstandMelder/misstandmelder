@@ -454,7 +454,7 @@ export default function Home() {
                   <p className="text-sm text-muted-foreground mb-4 italic pl-4">
                     Vrijspraak na schijnonderzoek: hoe de FIOD van de Belastingdienst en het OM Amsterdam hun grenzen overschreden</p>
 
-<p>Op 22 mei 2024 sprak de rechtbank mij vrij van beschuldigingen van het witwassen van bitcoins, ondanks een zware eis van tien maanden gevangenisstraf en een boete van €16.000. De zaak begon na een tip van de Finse belastingautoriteiten. Vanaf het eerste verhoor had ik het gevoel dat er iets niet klopte. Ik had sterk de indruk dat de zaak verband hield met mijn kritische uitingen op Twitter tijdens de coronaperiode – iets wat later tijdens mijn eigen Woo onderzoeken toch wel beetje bij bevestigd werd.
+<p className="text-sm text-muted-foreground mb-4 italic pl-4"> Op 22 mei 2024 sprak de rechtbank mij vrij van beschuldigingen van het witwassen van bitcoins, ondanks een zware eis van tien maanden gevangenisstraf en een boete van €16.000. De zaak begon na een tip van de Finse belastingautoriteiten. Vanaf het eerste verhoor had ik het gevoel dat er iets niet klopte. Ik had sterk de indruk dat de zaak verband hield met mijn kritische uitingen op Twitter tijdens de coronaperiode – iets wat later tijdens mijn eigen Woo onderzoeken toch wel beetje bij bevestigd werd.
                   </p>
                 </div>
                 <div className="flex justify-between items-center">
