@@ -404,7 +404,7 @@ Tijdens de behandeling werd een wond, veroorzaakt door de kanker, niet persoonli
                 <div className="flex justify-between items-center">
                   <span className="text-xs text-muted-foreground">3 juni 2023</span>
                   <a
-  href="https://www.google.com/maps/contrib/111399948181001198224/place/ChIJ00HKKEJvxkcRM_jib55lOMw/@52.3330453,4.5028565,9z/data=!4m4!1m3!8m2!1e1!2s111399948181001198224?entry=ttu&g_ep=EgoyMDI1MDYxNS4wIKXMDSoASAFQAw%3D%3D"
+  href="https://www.google.com/maps/contrib/111399948181001198224/place/ChIJPSx5kIn8xUcRo8sY91Cflmk/@52.3330529,4.8102748,10z/data=!4m6!1m5!8m4!1e1!2s111399948181001198224!3m1!1e1?entry=ttu&g_ep=EgoyMDI1MDYxNS4wIKXMDSoASAFQAw%3D%3D"
   target="_blank"
   rel="noopener noreferrer"
 >
