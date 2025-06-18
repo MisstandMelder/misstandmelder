@@ -391,16 +391,14 @@ Tijdens de behandeling werd een wond, veroorzaakt door de kanker, niet persoonli
               </div>
               <div className="p-4">
                 <h3 className="font-bold mb-2">
-                  Schending van Privacy en Gebrek aan Transparantie door Stichting Inlichtingenbureau
+                  Beroofd door Justitie en de Gemeente: Hoe de Overheid levens verwoest
                 </h3>
                 <div className="relative">
                   <div className="absolute -left-2 -top-2 text-primary text-opacity-20 text-4xl">"</div>
                   <p className="text-sm text-muted-foreground mb-4 italic pl-4">
-                    Tijdens mijn onderzoek naar de werkwijze van het Inlichtingenbureau ontdekte ik een verontrustend
-                    geval waarbij een "signaal" van dit bureau leidde tot een torenhoge vordering bij een vrouw die haar
-                    moeder regelmatig boodschappen liet doen. Het ontbreken van transparantie in de werkwijze van de
-                    stichting is zorgwekkend. Hoe ver gaat men in het verzamelen van persoonlijke gegevens en wat
-                    gebeurt er daarna met die data?
+                    Na het overlijden van mijn vrouw — en de lange, moeilijke periode van haar ziekte waarin wij te maken kregen met grove tekortkomingen in de medische zorg — kwam ik in een emotionele crisis terecht. (Over onze ervaringen in het Zaans Medisch Centrum (ZMC), waar zij tijdens haar ziekte werd behandeld, heb ik eerder een uitgebreide review geschreven. Wie daarin geïnteresseerd is, vindt deze terug onder mijn naam.)</p>
+
+<p className="text-sm text-muted-foreground mb-4 italic pl-4"> Tijdens een strafrechtelijk onderzoek bevroor de overheid al mijn middelen — volledig onterecht, zo bleek later. Vanaf het begin vermoedde ik dat de werkelijke reden achter mijn strafzaak niet witwassen was, maar mijn kritische uitingen op Twitter tijdens de coronaperiode. (Mijn ervaringen met het Openbaar Ministerie Amsterdam heb ik eveneens uitgebreid beschreven; ook deze review is onder mijn naam te vinden.)
                   </p>
                 </div>
                 <div className="flex justify-between items-center">
