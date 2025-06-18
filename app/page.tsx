@@ -465,7 +465,7 @@ Tijdens de behandeling werd een wond, veroorzaakt door de kanker, niet persoonli
   <Button variant="ghost" size="sm" className="h-8 gap-1">
     <MapPin className="h-3 w-3" />
     <span className="text-xs">Google Maps</span>
- </Button>
+  </Button>
 </a>
                 </div>
               </div>
