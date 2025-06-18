@@ -473,10 +473,11 @@ Tijdens de behandeling werd een wond, veroorzaakt door de kanker, niet persoonli
             </div>
           </div>
 
-          <div className="mt-8 text-center">
+          <div className="mt-8 text-center">More actions
             <Button variant="outline" className="group">
-    Bekijk meer meldingen
-  </button>
+              Bekijk meer meldingen
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Button>
           </div>
         </section>
 
