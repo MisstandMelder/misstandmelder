@@ -465,13 +465,14 @@ Tijdens de behandeling werd een wond, veroorzaakt door de kanker, niet persoonli
   <Button variant="ghost" size="sm" className="h-8 gap-1">
     <MapPin className="h-3 w-3" />
     <span className="text-xs">Google Maps</span>
-  </Button>
+ </Button>
 </a>
                 </div>
               </div>
             </div>
+          </div>
 
-          <div className="mt-8 text-center">More actions
+          <div className="mt-8 text-center">
             <Button variant="outline" className="group">
               Bekijk meer meldingen
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -493,7 +494,7 @@ Tijdens de behandeling werd een wond, veroorzaakt door de kanker, niet persoonli
               <Link href="/melden">
                 Naar het meldformulier
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+              </Link>More actions
             </Button>
           </div>
         </section>
