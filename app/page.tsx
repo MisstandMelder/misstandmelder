@@ -452,7 +452,9 @@ export default function Home() {
                 <div className="relative">
                   <div className="absolute -left-2 -top-2 text-primary text-opacity-20 text-4xl">"</div>
                   <p className="text-sm text-muted-foreground mb-4 italic pl-4">
-                    Een ander diep zorgwekkend aspect was de vervalsing van een proces-verbaal door rechercheur Daan Mijnsbergen van de FIOD. Deze ambtenaar, die wist dat mijn vrouw ernstig ziek was, manipuleerde het verslag van een telefoongesprek om de zaak tegen mij te versterken. Dit is geen kwestie van een menselijke fout; het toont aan hoe manipulatie binnen dit systeem wordt getolereerd – zo niet aangemoedigd.
+                    Vrijspraak na schijnonderzoek: hoe de FIOD van de Belastingdienst en het OM Amsterdam hun grenzen overschreden
+
+Op 22 mei 2024 sprak de rechtbank mij vrij van beschuldigingen van het witwassen van bitcoins, ondanks een zware eis van tien maanden gevangenisstraf en een boete van €16.000. De zaak begon na een tip van de Finse belastingautoriteiten. Vanaf het eerste verhoor had ik het gevoel dat er iets niet klopte. Ik had sterk de indruk dat de zaak verband hield met mijn kritische uitingen op Twitter tijdens de coronaperiode – iets wat later tijdens mijn eigen Woo onderzoeken toch wel beetje bij bevestigd werd.
                   </p>
                 </div>
                 <div className="flex justify-between items-center">
