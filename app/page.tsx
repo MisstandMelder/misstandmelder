@@ -1,6 +1,4 @@
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react'; // of waar je deze ook importeert
-import { Button } from "@/components/ui/button"; // jouw custom button component
+import { Button } from "@/components/ui/button"
 import {
   ChevronDown,
   ExternalLink,
@@ -474,14 +472,12 @@ Tijdens de behandeling werd een wond, veroorzaakt door de kanker, niet persoonli
             </div>
           </div>
 
-         <div className="mt-8 text-center">
-  <Link href="/meldingen">
-    <Button variant="outline" className="group">
-      Bekijk meer meldingen
-      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-    </Button>
-  </Link>
-</div>
+          <div className="mt-8 text-center">
+            <Button variant="outline" className="group">
+              Bekijk meer meldingen
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </div>
         </section>
 
         {/* CTA Sectie */}
