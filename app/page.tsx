@@ -405,10 +405,16 @@ export default function Home() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-xs text-muted-foreground">3 juni 2023</span>
-                  <Button variant="ghost" size="sm" className="h-8 gap-1">
-                    <MapPin className="h-3 w-3" />
-                    <span className="text-xs">Google Maps</span>
-                  </Button>
+                  <a
+  href="https://www.google.com/maps/contrib/111399948181001198224/place/ChIJ00HKKEJvxkcRM_jib55lOMw/@52.3330453,4.5028565,9z/data=!4m4!1m3!8m2!1e1!2s111399948181001198224?entry=ttu&g_ep=EgoyMDI1MDYxNS4wIKXMDSoASAFQAw%3D%3D"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button variant="ghost" size="sm" className="h-8 gap-1">
+    <MapPin className="h-3 w-3" />
+    <span className="text-xs">Google Maps</span>
+  </Button>
+</a>
                 </div>
               </div>
             </div>
@@ -455,10 +461,16 @@ export default function Home() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-xs text-muted-foreground">27 mei 2023</span>
-                  <Button variant="ghost" size="sm" className="h-8 gap-1">
-                    <MapPin className="h-3 w-3" />
-                    <span className="text-xs">Google Maps</span>
-                  </Button>
+                  <a
+  href="https://www.google.com/maps/contrib/111399948181001198224/place/ChIJN0Ovs1_ixUcRV_EiEjkfKvQ/@52.1886937,4.822067,9z/data=!4m4!1m3!8m2!1e1!2s111399948181001198224?entry=ttu&g_ep=EgoyMDI1MDYxNS4wIKXMDSoASAFQAw%3D%3D"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button variant="ghost" size="sm" className="h-8 gap-1">
+    <MapPin className="h-3 w-3" />
+    <span className="text-xs">Google Maps</span>
+  </Button>
+</a>
                 </div>
               </div>
             </div>
