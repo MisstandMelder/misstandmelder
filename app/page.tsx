@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button"
-import Link from 'next/link';
 import {
   ChevronDown,
   ExternalLink,
@@ -471,7 +470,6 @@ Tijdens de behandeling werd een wond, veroorzaakt door de kanker, niet persoonli
                 </div>
               </div>
             </div>
-          </div>
 
           <div className="mt-8 text-center">More actions
             <Button variant="outline" className="group">
