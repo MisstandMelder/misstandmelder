@@ -398,7 +398,7 @@ Tijdens de behandeling werd een wond, veroorzaakt door de kanker, niet persoonli
                   <p className="text-sm text-muted-foreground mb-4 italic pl-4">
                     De Nationale Ombudsman zou burgers moeten beschermen tegen onrechtmatig overheidsoptreden. In mijn geval was het tegendeel waar. Wat volgde na mijn klacht over een door de NCTV vervalste tweet die ten onrechte aan mijn naam werd gekoppeld, was geen onafhankelijk onderzoek – maar een bureaucratische verdediging van het overheidsstandpunt.</p>
 
-<p className="text-sm text-muted-foreground mb-4 italic pl-4"> De fout van de NCTV – het koppelen van een tweet van het account @Covid19Proces aan mijn persoonlijke account @EvertLenos – leidde ertoe dat mijn naam op onterechte gronden werd doorgestuurd naar opsporingsdiensten. Deze actie heeft bijgedragen aan een jarenlange strafzaak, waarin ik op 22 mei 2024 volledig ben vrijgesproken. Maar de schade was toen al aangericht.
+<p className="text-sm text-muted-foreground mb-4 italic pl-4">De fout van de NCTV – het koppelen van een tweet van het account @Covid19Proces aan mijn persoonlijke account @EvertLenos – leidde ertoe dat mijn naam op onterechte gronden werd doorgestuurd naar opsporingsdiensten. Deze actie heeft bijgedragen aan een jarenlange strafzaak, waarin ik op 22 mei 2024 volledig ben vrijgesproken. Maar de schade was toen al aangericht.
                   </p>
                 </div>
                 <div className="flex justify-between items-center">
