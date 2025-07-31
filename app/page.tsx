@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import {
-  ChevronDown,More actions
+  ChevronDown,
   ExternalLink,
   Star,
   MapPin,
