@@ -391,7 +391,7 @@ Tijdens de behandeling werd een wond, veroorzaakt door de kanker, niet persoonli
               </div>
               <div className="p-4">
                 <h3 className="font-bold mb-2">
-                  OmbudsMan – Geen bondgenoot, maar een bureaucratisch schild voor de overheid
+                  <p><a href="https://maps.app.goo.gl/8HDpM8WwJPaLd9au7">OmbudsMan – Geen bondgenoot, maar een bureaucratisch schild voor de overheid</a></p>
                 </h3>
                 <div className="relative">
                   <div className="absolute -left-2 -top-2 text-primary text-opacity-20 text-4xl">"</div>
