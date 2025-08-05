@@ -391,14 +391,14 @@ Tijdens de behandeling werd een wond, veroorzaakt door de kanker, niet persoonli
               </div>
               <div className="p-4">
                 <h3 className="font-bold mb-2">
-                  Beroofd door Justitie en de Gemeente: Hoe de Overheid levens verwoest
+                 OmbudsMan – Geen bondgenoot, maar een bureaucratisch schild voor de overheid
                 </h3>
                 <div className="relative">
                   <div className="absolute -left-2 -top-2 text-primary text-opacity-20 text-4xl">"</div>
                   <p className="text-sm text-muted-foreground mb-4 italic pl-4">
-                    Na het overlijden van mijn vrouw — en de lange, moeilijke periode van haar ziekte waarin wij te maken kregen met grove tekortkomingen in de medische zorg — kwam ik in een emotionele crisis terecht. (Over onze ervaringen in het Zaans Medisch Centrum (ZMC), waar zij tijdens haar ziekte werd behandeld, heb ik eerder een uitgebreide review geschreven. Wie daarin geïnteresseerd is, vindt deze terug onder mijn naam.)</p>
+                    De Nationale Ombudsman zou burgers moeten beschermen tegen onrechtmatig overheidsoptreden. In mijn geval bleek het tegenovergestelde waar. Wat volgde op mijn klacht over een valse koppeling tussen een tweet en mijn naam, was geen onafhankelijk onderzoek, maar een bureaucratische verdediging van het overheidsstandpunt.)</p>
 
-<p className="text-sm text-muted-foreground mb-4 italic pl-4"> Tijdens een strafrechtelijk onderzoek bevroor de overheid al mijn middelen — volledig onterecht, zo bleek later. Vanaf het begin vermoedde ik dat de werkelijke reden achter mijn strafzaak niet witwassen was, maar mijn kritische uitingen op Twitter tijdens de coronaperiode. (Mijn ervaringen met het Openbaar Ministerie Amsterdam heb ik eveneens uitgebreid beschreven; ook deze review is onder mijn naam te vinden.)
+<p className="text-sm text-muted-foreground mb-4 italic pl-4"> De NCTV verklaarde in 2021 een e-mail te hebben ontvangen via een server van de Tweede Kamer. In die e-mail zou een tweet zijn opgenomen die aan het account @EvertLenos werd toegeschreven. Uit mijn Twittergeschiedenis blijkt echter onomstotelijk dat mijn account op 9 december 2021 de naam @Covid19Proces droeg – niet @EvertLenos. De Tweede Kamer stelde op mijn verzoek een onderzoek in, maar vond géén enkel spoor van een dergelijke e-mail die via hun servers zou zijn verstuurd.)
                   </p>
                 </div>
                 <div className="flex justify-between items-center">
