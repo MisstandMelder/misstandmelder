@@ -15,6 +15,28 @@ import Image from "next/image"
 import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+export const metadata = {
+  title: 'MisstandMelder – Maak misstanden zichtbaar in Nederland',
+  description:
+    'MisstandMelder is een gratis platform om misstanden in Nederland aan te kaarten via krachtige Google Reviews.',
+  openGraph: {
+    title: 'MisstandMelder – Maak misstanden zichtbaar in Nederland',
+    description:
+      'MisstandMelder is een gratis platform om misstanden in Nederland aan te kaarten via krachtige Google Reviews.',
+    url: 'https://misstandmelder.vercel.app',
+    siteName: 'MisstandMelder',
+    locale: 'nl_NL',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+};
 
 export default function Home() {
   return (
