@@ -516,7 +516,7 @@ Tijdens de behandeling werd een wond, veroorzaakt door de kanker, niet persoonli
               <Link href="/melden">
                 Naar het meldformulier
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+              </Link>More actions
             </Button>
           </div>
         </section>
